@@ -1,12 +1,22 @@
 body {
-    margin-top: 75px;
+    margin-top: 100px;
+    background-color: #d3d3db;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 * {
     margin: 0;
     padding: 0;
+    font-family: Signika;
+    font-weight: 400;
 }
 /* navBar */
+
+/* hex */
+/* #424a69
+#d3d3db
+#9d9ca9 */
 
 nav {
 	display: flex;
@@ -16,8 +26,8 @@ nav {
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 75px;
-	background-color: pink;
+	height: 100px;
+	background-color: #424a69;
 }
 
 nav .navLeft {
@@ -30,12 +40,22 @@ nav .navLeft a {
     display: flex;
     text-align: center;
     margin-left: 30px;
+    align-items: center;
+    text-decoration: none;
+    color: #d3d3db;
+}
+
+nav .navLeft img {
+    height: 50px;
+    border-radius: 25px;
+    margin-right: 10px;
 }
 
 nav .navMid input {
-    width: 300px;
-    height: 20px;
+    width: 400px;
+    height: 25px;
     border-radius: 10px;
+    border: 0;
 }
 
 nav .navRight a {
@@ -43,4 +63,42 @@ nav .navRight a {
     justify-content: flex-end;
     margin-right: 30px;
     width: 200px;
+}
+
+/* songList */
+
+.songList {
+    display: flex;
+}
+
+.songBox {
+   border: 1px solid black; 
+   width: 200px;
+   border-radius: 10px;
+   background-color: #9d9ca9;
+   margin: 0 20px;
+}
+
+.songBox .photo {
+    position: relative;
+}
+
+.songBox .photo .edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.songBox img {
+    width: 170px;
+    margin: 15px 15px;
+    border-radius: 10px;
+}
+
+.songBox h4, .songBox h5 {
+    margin: 0 15px;
+}
+
+.songBox h5 {
+    margin-bottom: 15px;
 }
