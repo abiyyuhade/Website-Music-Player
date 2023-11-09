@@ -15,9 +15,25 @@ if(!isset($_SESSION['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/global.css">
     <title>Index Brok</title>
 </head>
 <body>
+    <nav>
+        <div class="navLeft">
+            <a href="index.php">
+            <img src="" alt="">
+            <h2>Spotipi</h2>
+            </a>
+            <a href="playlist.php">Playlist</a>
+        </div>
+        <div class="navMid">
+            <input type="text" name="" id="">
+        </div>
+        <div class="navRight">
+            <a href="logout.php">Log Out</a>
+        </div>
+    </nav>
     <h1>Index Brok</h1>
     <a href="addSong.php">Add More Song</a> <br><br>
     <?php foreach($song as $row) : ?>
@@ -25,6 +41,6 @@ if(!isset($_SESSION['login'])) {
         <a href="updateSong.php?id=<?= $row['id']; ?>"><?= $row['title']; ?></a>
     </li>
     <?php endforeach; ?>
-    <a href="logout.php">Log Out</a>
+    
 </body>
 </html>
