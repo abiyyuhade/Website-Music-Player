@@ -17,7 +17,7 @@
     <div class="navMid">
         <form action="" method="post">
             <input type="text" name="keyword" autocomplete="off">
-            <button type="submit" name="findSong">Search</button>
+            <button type="submit" name="findSong"><i class="fa-regular fa-magnifying-glass"></i></button>
         </form>
     </div>
     <div class="navRight">
