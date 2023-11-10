@@ -1,7 +1,9 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Signika:wght@300;400;500&display=swap');
+    </style>
 </head>
 <nav>
     <div class="navLeft">
@@ -14,12 +16,14 @@
         </a>
     </div>
     <div class="navMid">
-        <form action="index.php" method="post">
+        <form action="" method="post">
             <input type="text" name="keyword" autofocus autocomplete="off">
             <button type="submit" name="findSong">Search</button>
         </form>
     </div>
     <div class="navRight">
-        <a href="logout.php">Log Out</a>
+        <a href="logout.php">
+            <h4>Log out</h4>
+        </a>
     </div>
 </nav>
