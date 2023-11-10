@@ -111,9 +111,13 @@ function uploadPhoto() {
         return false;
     }
 
-    move_uploaded_file($tmpName, './assets/upload/images/' . $fileName);
+    $newFileName = uniqid();
+    $newFileName .= '.';
+    $newFileName .= $extPictFix;
 
-    return $fileName;
+    move_uploaded_file($tmpName, './assets/upload/images/' . $newFileName);
+
+    return $newFileName;
 
 }
 
@@ -157,9 +161,13 @@ function uploadMusic() {
         return false;
     }
 
-    move_uploaded_file($tmpName, './assets/upload/music/' . $fileName);
+    $newFileName = uniqid();
+    $newFileName .= '.';
+    $newFileName .= $extMusicFix;
 
-    return $fileName;
+    move_uploaded_file($tmpName, './assets/upload/music/' . $newFileName);
+
+    return $newFileName;
 }
 
 function updateSong($data) {
