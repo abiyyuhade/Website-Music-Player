@@ -35,7 +35,7 @@ if (isset($_POST['update'])) {
 </head>
 
 <body>
-    <h1>Update Song</h1>
+    <h1>Edit Song</h1>
     <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $data['id']; ?>">
         <label for="title">Title</label>

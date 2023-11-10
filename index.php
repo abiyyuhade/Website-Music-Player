@@ -26,9 +26,7 @@ if (isset($_POST['findSong'])) {
 </head>
 
 <body>
-
-    <h1>Index Brok</h1>
-    <a href="addSong.php">Add More Song</a> <br><br>
+    <br><br><a href="addSong.php">Add More Song</a> <br><br>
     <div class="songList">
         <?php foreach ($song as $row): ?>
             <!-- <li>
@@ -41,6 +39,7 @@ if (isset($_POST['findSong'])) {
                     <div class="photo">
                         <img src="assets/upload/images/<?= $row['photo'] ?>" alt="">
                         <a href="updateSong.php?id=<?= $row['id']; ?>" class="edit">edit</a>
+                        <a href="deleteSong.php?id=<?= $row['id']; ?>" class="delete">delete</a>
                     </div>
 
                     <h4>

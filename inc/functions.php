@@ -187,4 +187,19 @@ function findSong($keyword) {
     $query = "SELECT * FROM songs WHERE title LIKE '%$keyword%' OR artist LIKE '%$keyword%' ORDER BY title ASC";
     return query($query);
 }
+
+function deleteSong($id) {
+    global $conn;
+    $id = mysqli_real_escape_string($conn, $id);
+
+    $file = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM songs WHERE id='$id'"));
+
+    unlink('./assets/upload/images/' . $file["photo"]);
+    unlink('./assets/upload/music/' . $file['music']);
+
+    $delete = "DELETE FROM songs WHERE id = $id";
+
+    mysqli_query($conn, $delete);
+    return mysqli_affected_rows($conn);
+}
 ?>
