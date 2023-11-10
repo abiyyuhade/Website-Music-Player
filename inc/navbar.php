@@ -1,7 +1,3 @@
-<?php 
-// include "functions.php";
-?>
-
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +14,7 @@
         </a>
     </div>
     <div class="navMid">
-        <form action="" method="post">
+        <form action="index.php" method="post">
             <input type="text" name="keyword" autofocus autocomplete="off">
             <button type="submit" name="findSong">Search</button>
         </form>

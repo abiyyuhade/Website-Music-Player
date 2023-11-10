@@ -182,4 +182,9 @@ function updateSong($data) {
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
+
+function findSong($keyword) {
+    $query = "SELECT * FROM songs WHERE title LIKE '%$keyword%' OR artist LIKE '%$keyword%' ORDER BY title ASC";
+    return query($query);
+}
 ?>
