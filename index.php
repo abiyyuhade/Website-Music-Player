@@ -2,6 +2,7 @@
 session_start();
 include "inc/functions.php";
 include "inc/navbar.php";
+include "inc/footer.php";
 
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");

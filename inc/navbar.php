@@ -8,7 +8,6 @@
 <nav>
     <div class="navLeft">
         <a href="index.php">
-            <img src="assets/images/ado.jpeg" alt="">
             <h2>Spotipi</h2>
         </a>
         <a href="playlist.php">
