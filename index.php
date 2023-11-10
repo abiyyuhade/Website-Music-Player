@@ -23,12 +23,44 @@ if (isset($_POST['findSong'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/global.css">
     <title>Index Brok</title>
+    <script>
+        var currentPlayingMusicId = null;
+
+        function toggleMusic(musicId) {
+            var audioElement = document.getElementById('music' + musicId);
+            var playButton = document.getElementById('playPauseButton_' + musicId);
+
+            if (currentPlayingMusicId === musicId) {
+                if (audioElement.paused) {
+                    audioElement.play();
+                    playButton.innerText = 'Pause';
+                } else {
+                    audioElement.pause();
+                    playButton.innerText = 'Play';
+                }
+            } else {
+                var currentPlayingAudio = document.getElementById('music' + currentPlayingMusicId);
+                if (currentPlayingAudio) {
+                    currentPlayingAudio.pause();
+                    var currentPlayingButton = document.getElementById('playPauseButton_' + currentPlayingMusicId);
+                    if (currentPlayingButton) {
+                        currentPlayingButton.innerText = 'Play';
+                    }
+                }
+
+                audioElement.play();
+                currentPlayingMusicId = musicId;
+                playButton.innerText = 'Pause';
+            }
+        }
+    </script>
+
 </head>
 
 <body>
     <br><br><a href="addSong.php">Add More Song</a> <br><br>
     <div class="songList">
-        <?php foreach ($song as $row): ?>
+        <?php foreach ($song as $row) : ?>
             <!-- <li>
             <a href="updateSong.php?id=<?= $row['id']; ?>">
                 <?= $row['title']; ?>
@@ -40,8 +72,13 @@ if (isset($_POST['findSong'])) {
                         <img src="assets/upload/images/<?= $row['photo'] ?>" alt="">
                         <a href="updateSong.php?id=<?= $row['id']; ?>" class="edit">edit</a>
                         <a href="deleteSong.php?id=<?= $row['id']; ?>" class="delete">delete</a>
+                        <a href="javascript:void(0);" onclick="toggleMusic('<?= $row['id']; ?>')" id="playPauseButton_<?= $row['id']; ?>">Play</a>
+                        <!-- <a href="javascript:void(0);" onclick="toggleMusic('music<?= $row['id']; ?>')" id="playPauseButton">Play</a> -->
                     </div>
-
+                    <?php
+                    $musicPath = './assets/upload/music/' . $row['music'];
+                    ?>
+                    <audio id="music<?= $row['id']; ?>" src="<?= $musicPath; ?>"></audio>
                     <h4>
                         <?= $row['title']; ?>
                     </h4>
