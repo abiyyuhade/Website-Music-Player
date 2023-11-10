@@ -73,7 +73,6 @@ if (isset($_POST['findSong'])) {
                         <a href="updateSong.php?id=<?= $row['id']; ?>" class="edit">edit</a>
                         <a href="deleteSong.php?id=<?= $row['id']; ?>" class="delete">delete</a>
                         <a href="javascript:void(0);" onclick="toggleMusic('<?= $row['id']; ?>')" id="playPauseButton_<?= $row['id']; ?>">Play</a>
-                        <!-- <a href="javascript:void(0);" onclick="toggleMusic('music<?= $row['id']; ?>')" id="playPauseButton">Play</a> -->
                     </div>
                     <?php
                     $musicPath = './assets/upload/music/' . $row['music'];
