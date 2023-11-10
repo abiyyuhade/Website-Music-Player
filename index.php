@@ -3,7 +3,7 @@ session_start();
 include "inc/functions.php";
 include "inc/navbar.php";
 
-$song = query("SELECT * FROM songs");
+$song = query("SELECT * FROM songs ORDER BY title ASC");
 
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
