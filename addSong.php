@@ -1,6 +1,8 @@
 <?php
 
 include "inc/functions.php";
+include "inc/navbar.php";
+include "inc/footer.php";
 
 if (isset($_POST['add'])) {
     if (addSong($_POST) > 0) {
@@ -26,11 +28,13 @@ if (isset($_POST['add'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Add More Song</title>
 </head>
 
 <body>
-    <h1>Add New Song</h1>
+    <h1 class="addTitle">Add New Song</h1>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" placeholder="Title of the Song" required><br><br>

@@ -8,7 +8,7 @@
 <nav>
     <div class="navLeft">
         <a href="index.php">
-            <h2>Spotipi</h2>
+            <h1>Spotipi</h1>
         </a>
         <a href="playlist.php">
             <h2>Playlist</h2>

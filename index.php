@@ -60,7 +60,7 @@ if (isset($_POST['findSong'])) {
 </head>
 
 <body>
-    <br><br><a href="addSong.php">Add More Song</a> <br><br>
+    <button class="addSong"><a href="addSong.php">Add Song</a></button>
     <div class="songList">
         <?php foreach ($song as $row) : ?>
             <!-- <li>

@@ -46,6 +46,11 @@ nav .navLeft a {
     color: white;
 }
 
+nav .navLeft h1 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
 nav .navLeft img {
     height: 50px;
     border-radius: 25px;
@@ -76,9 +81,12 @@ nav .navMid button {
 }
 
 nav .navMid button i {
+    position: relative;
+    top: 1px;
     color: white;
     font-size: 18px;
     font-weight: bold;
+
 }
 
 nav .navRight a {
@@ -88,6 +96,23 @@ nav .navRight a {
     width: 200px;
     color: white;
     text-decoration: none;
+}
+
+/* index */
+
+.addSong {
+    margin: 20px 20px;
+    height: 40px;
+    width: 90px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(58, 58, 58);
+}
+
+.addSong a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
 }
 
 /* songList */
@@ -126,6 +151,15 @@ nav .navRight a {
 
 .songBox h5 {
     margin-bottom: 15px;
+}
+
+/* addSong */
+
+.addTitle {
+    color: white;
+    font-size: 28px;
+    margin: 0 20px;
+    padding: 20px 0;
 }
 
 /* footer */
