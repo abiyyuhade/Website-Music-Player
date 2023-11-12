@@ -29,24 +29,46 @@ if (isset($_POST['add'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/global.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Add More Song</title>
 </head>
 
 <body>
     <h1 class="addTitle">Add New Song</h1>
-    <form action="" method="post" enctype="multipart/form-data">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" placeholder="Title of the Song" required><br><br>
-        <label for="artist">Artist</label>
-        <input type="text" name="artist" id="artist" placeholder="Artist" required><br><br>
-        <label for="lyrics">Lyrics</label>
-        <input type="text" name="lyrics" id="lyrics" placeholder="Lyrics of the Song" required><br><br>
-        <label for="photo">Cover</label>
-        <input type="file" name="photo" id="photo"><br><br>
-        <label for="music">Music</label>
-        <input type="file" name="music" id="music"><br><br>
-        <button type="submit" name="add">Add Song</button>
+    <form action="" method="post" enctype="multipart/form-data" class="addBox">
+        <div class="addLeft">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="Title of the Song" required>
+            <label for="artist">Artist</label>
+            <input type="text" name="artist" id="artist" placeholder="Artist" required>
+            <div class="fileBox">
+                <div>
+                <label for="">Cover</label>
+                <label for="photo" class="file">
+                    <i class="fa-solid fa-image"></i>
+                    <p>Add Cover Album</p>
+                </label>
+                <input type="file" name="photo" id="photo">
+                </div>
+                <div>
+                <label for="">Music</label>
+                <label for="music" class="file">
+                    <i class="fa-solid fa-music"></i>
+                    <p>Add Music</p>
+                </label>
+                <input type="file" name="music" id="music">
+                </div>
+            </div>
+        </div>
+        <div class="addRight">
+            <label for="lyrics">Lyrics</label>
+            <textarea name="lyrics" id="lyrics" cols="30" rows="10" required>Lyrics of the Song</textarea>
+            <button type="submit" name="add">Add Song</button>
+        </div>
+
+
     </form>
 </body>
 
