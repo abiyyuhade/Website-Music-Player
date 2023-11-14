@@ -78,7 +78,7 @@ if (isset($_POST['findSong'])) {
 </head>
 
 <body>
-    <button class="addSong"><a href="addSong.php">Add Song</a></button>
+    <button class="addSong"><a href="song/addSong.php">Add Song</a></button>
     <div class="songList">
         <?php foreach ($song as $row): ?>
             <!-- <li>
