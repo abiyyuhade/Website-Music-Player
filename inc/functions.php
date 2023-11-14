@@ -22,6 +22,7 @@ function register($data) {
     $username = stripslashes($data['username']);
     $password = mysqli_real_escape_string($conn, $data['password']);
     $confPassword = mysqli_real_escape_string($conn, $data['confPassword']);
+    $role = "user";
 
     $result = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username'");
 
@@ -45,7 +46,7 @@ function register($data) {
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_query($conn, "INSERT INTO users VALUES ('', '$username', '$password')");
+    mysqli_query($conn, "INSERT INTO users (username, password, role) VALUES ('$username', '$password', '$role')");
 
     return mysqli_affected_rows($conn);
 }
