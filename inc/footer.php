@@ -5,6 +5,7 @@
         <i class="fa-solid fa-forward"></i>
     </div>
     <div class="footMid">
+        <!-- problem here -->
         <img src="assets/images/ado.jpeg" alt="">
         <div>
             <h4>Song</h4>

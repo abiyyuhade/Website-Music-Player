@@ -7,7 +7,8 @@
 </head>
 <nav>
     <div class="navLeft">
-        <a href="index.php">
+        <!-- problemh here -->
+        <a href="../index.php">
             <h1>Spotipi</h1>
         </a>
         <a href="playlist/playlist.php">
