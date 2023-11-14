@@ -94,11 +94,11 @@ if (isset($_POST['findSong'])) {
                         </button>
                         <img src="assets/upload/images/<?= $row['photo'] ?>" alt="">
                         <div id="dropdown_<?= $row['id']; ?>" class="dropdown">
-                            <a href="updateSong.php?id=<?= $row['id']; ?>" class="edit">
+                            <a href="song/updateSong.php?id=<?= $row['id']; ?>" class="edit">
                                 <i class="fa-solid fa-pen-to-square"></i>
                                 edit
                             </a>
-                            <a href="deleteSong.php?id=<?= $row['id']; ?>" class="delete">
+                            <a href="song/deleteSong.php?id=<?= $row['id']; ?>" class="delete">
                                 <i class="fa-solid fa-trash"></i>
                                 delete
                             </a>

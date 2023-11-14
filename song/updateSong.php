@@ -1,6 +1,6 @@
 <?php
 
-include "inc/functions.php";
+include "../inc/functions.php";
 
 $id = $_GET['id'];
 
@@ -12,7 +12,7 @@ if (isset($_POST['update'])) {
         echo "
             <script>
             alert('The song has been successfully updated!');
-            document.location.href = 'index.php';
+            document.location.href = '../index.php';
             </script>
         ";
     } else {
@@ -46,7 +46,7 @@ if (isset($_POST['update'])) {
         <input type="text" name="lyrics" id="lyrics" placeholder="Lyrics of the Song" value="<?= $data['lyrics']; ?>" required><br><br>
         <label for="currentPhoto">Current Cover</label><br>
         <?php
-        $photoPath = './assets/upload/images/' . $data['photo'];
+        $photoPath = '../assets/upload/images/' . $data['photo'];
         if (file_exists($photoPath)) {
             echo '<img src="' . $photoPath . '" width="300px" class="cover-album">';
         } else {
