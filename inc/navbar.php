@@ -10,7 +10,7 @@
         <a href="index.php">
             <h1>Spotipi</h1>
         </a>
-        <a href="playlist.php">
+        <a href="playlist/playlist.php">
             <h2>Playlist</h2>
         </a>
     </div>

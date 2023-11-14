@@ -116,7 +116,7 @@ function uploadPhoto() {
     $newFileName .= '.';
     $newFileName .= $extPictFix;
 
-    move_uploaded_file($tmpName, './assets/upload/images/' . $newFileName);
+    move_uploaded_file($tmpName, '../assets/upload/images/' . $newFileName);
 
     return $newFileName;
 
@@ -166,7 +166,7 @@ function uploadMusic() {
     $newFileName .= '.';
     $newFileName .= $extMusicFix;
 
-    move_uploaded_file($tmpName, './assets/upload/music/' . $newFileName);
+    move_uploaded_file($tmpName, '../assets/upload/music/' . $newFileName);
 
     return $newFileName;
 }
@@ -195,10 +195,82 @@ function deleteSong($id) {
 
     $file = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM songs WHERE id='$id'"));
 
-    unlink('./assets/upload/images/' . $file["photo"]);
-    unlink('./assets/upload/music/' . $file['music']);
+    unlink('../assets/upload/images/' . $file["photo"]);
+    unlink('../assets/upload/music/' . $file['music']);
 
     $delete = "DELETE FROM songs WHERE id = $id";
+
+    mysqli_query($conn, $delete);
+    return mysqli_affected_rows($conn);
+}
+
+function addPlaylist($data) {
+    global $conn;
+
+    $name = $data['name'];
+
+    $photo = uploadPhoto();
+    if(!$photo) {
+        return false;
+    }
+    
+    $id_user = $_SESSION['id_user']?? null;
+    if ($id_user === null) {
+        echo "
+            <script>
+            alert('User not authenticated. Something wrong!');
+            </script>
+        ";
+        return false;
+    }
+
+    $query = "INSERT INTO playlists (name, photo, id_user) VALUES ('$name', '$photo', '$id_user')";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function editPlaylist($data) {
+    global $conn;
+    
+    $id = $data['id'];
+    $name = $data['name'];
+
+    if ($_FILES['photo']['error'] === 0) {
+        $photo = uploadPhoto();
+        if (!$photo) {
+            return false;
+        }
+    } else {
+        $result = query("SELECT photo FROM playlists WHERE id = '$id'");
+        $photo = $result[0]['photo'];
+    }
+
+    $id_user = $_SESSION['id_user']?? null;
+    if ($id_user === null) {
+        echo "
+            <script>
+            alert('User not authenticated. Something wrong!');
+            </script>
+        ";
+        return false;
+    }
+
+    $query = "UPDATE playlists SET name = '$name', photo = '$photo', id_user = '$id_user' WHERE id = '$id'";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function deletePlaylist($id) {
+    global $conn;
+    $id = mysqli_real_escape_string($conn, $id);
+
+    $file = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM playlists WHERE id='$id'"));
+
+    unlink('../assets/upload/images/' . $file["photo"]);
+
+    $delete = "DELETE FROM playlists WHERE id = $id";
 
     mysqli_query($conn, $delete);
     return mysqli_affected_rows($conn);
