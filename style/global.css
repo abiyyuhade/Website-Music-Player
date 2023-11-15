@@ -101,20 +101,20 @@ nav .navRight a {
 
 /* index */
 
-.addSong {
-    margin: 20px 20px;
-    height: 40px;
-    width: 90px;
-    border: none;
-    border-radius: 10px;
-    background-color: rgb(58, 58, 58);
-}
+    .addSong {
+        margin: 20px 20px;
+        height: 40px;
+        width: 90px;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(58, 58, 58);
+    }
 
-.addSong a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-}
+    .addSong a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+    }
 
 /* songList */
 
@@ -248,6 +248,14 @@ nav .navRight a {
     color: white;
     font-size: 20px;
     margin: 20px 0;
+}
+
+.addBox .addLeft select {
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 120px;
+    padding-left: 10px;
 }
 
 .addBox .addLeft .fileBox {

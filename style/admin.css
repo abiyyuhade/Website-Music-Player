@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: Roboto;
+    font-weight: 400;
+}
+
+body {
+    margin-top: 50px;
+    margin-left: 220px;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* navbar */
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 50px;
+    width: 170px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between  ;
+    padding-left: 30px;
+    padding-top: 30px;
+    border-right: 1px solid rgb(53, 53, 53);
+}
+
+nav h1 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+nav .navTop a,
+nav .navBot a {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-bottom: 20px;
+    background-color: rgb(53, 53, 53);
+    width: 130px;
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 10px;
+}
+
+nav .navTop a i,
+nav .navBot a i {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+nav .navTop a h2 {
+    font-size: 20px;
+}
+
+nav .navBot {
+    display: flex;
+    align-items: center;
+}
+
+/* addSong */
+
+.pageName {
+    color: white;
+}
+
+.addSong {
+    margin: 20px 0;
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(58, 58, 58);
+}
+
+.addSong a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+
+table {
+    border-collapse: collapse;
+}
+
+tr,th,td {
+    border: 1px solid white;
+    color: white;
+    text-align: center;
+    background-color: rgb(53, 53, 53);
+}
+
+th {
+    height: 40px;
+}
+
+.id, .action {
+    width:80px;
+}
+
+.title, .artist, .genre, .cover {
+    width: 200px;
+}
+
+.lyrics {
+    width: 500px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(53, 53, 53);
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer i{
+    margin-left: 5px;
+}
