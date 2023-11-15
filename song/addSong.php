@@ -11,7 +11,7 @@ if (isset($_POST['add'])) {
         echo "
             <script>
             alert('The new song has been successfully added!');
-            document.location.href = '../index.php';
+            document.location.href = '../admin/admin.php';
             </script>
         ";
     } else {

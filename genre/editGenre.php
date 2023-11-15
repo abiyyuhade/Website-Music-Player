@@ -10,7 +10,7 @@ if(isset($_POST['editGenre'])) {
         echo "
             <script>
             alert('The genre has been successfully updated!');
-            document.location.href = 'listGenre.php';
+            document.location.href = '../admin/admin.php';
             </script>
         ";
     } else {

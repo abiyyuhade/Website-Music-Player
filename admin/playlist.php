@@ -9,12 +9,22 @@
             <th class="cover">Cover</th>
             <th class="action">Action</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-        </tr>
+
+        <?php $i = 1; ?>
+        <?php foreach ($playlist as $row) : ?>
+            <tr>
+                <td><?= $i; ?></td>
+                <td><?= $row['name']; ?></td>
+                <td><?= $row['user_name']; ?></td>
+                <td>
+                    <img src="../assets/upload/images/<?= $row['photo']; ?>" alt="">
+                </td>
+                <td>
+                    <a href="../playlist/editPlaylist.php?id=<?= $row['id']; ?>">Edit</a> |
+                    <a href="../playlist/deletePlaylist.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            <?php $i++; ?>
+        <?php endforeach; ?>
     </table>
 </div>

@@ -7,7 +7,7 @@ if(deleteGenre($id) > 0) {
     echo "
         <script>
         alert('The genre has been successfully deleted!');
-        document.location.href = 'listGenre.php';
+        document.location.href = '../admin/admin.php';
         </script>
         ";
 } else {

@@ -16,7 +16,7 @@ if (isset($_POST['update'])) {
         echo "
             <script>
             alert('The song has been successfully updated!');
-            document.location.href = '../index.php';
+            document.location.href = '../admin/admin.php';
             </script>
         ";
     } else {

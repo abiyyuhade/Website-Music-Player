@@ -6,7 +6,7 @@ if(isset($_POST['addGenre'])) {
         echo "
             <script>
             alert('The new genre has been successfully added!');
-            document.location.href = 'listGenre.php';
+            document.location.href = '../admin/admin.php';
             </script>
         ";
     } else {
