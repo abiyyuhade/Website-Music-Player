@@ -29,7 +29,9 @@ $playlist = query("SELECT playlists.*, users.username AS user_name FROM playlist
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Signika:wght@300;400;500&display=swap');
     </style>
@@ -84,26 +86,42 @@ $playlist = query("SELECT playlists.*, users.username AS user_name FROM playlist
                 </tr>
 
                 <?php $i = 1; ?>
-                <?php foreach ($song as $row) : ?>
+                <?php foreach ($song as $row): ?>
                     <tr>
-                        <td><?= $i; ?></td>
-                        <td><?= $row['title']; ?></td>
-                        <td><?= $row['artist']; ?></td>
-                        <td><?= $row['genre_name']; ?></td>
                         <td>
+                            <?= $i; ?>
+                        </td>
+                        <td>
+                            <?= $row['title']; ?>
+                        </td>
+                        <td>
+                            <?= $row['artist']; ?>
+                        </td>
+                        <td>
+                            <?= $row['genre_name']; ?>
+                        </td>
+                        <td class="coverTable">
                             <img src="../assets/upload/images/<?= $row['photo']; ?>" alt="">
                         </td>
-                        <td><?= $row['lyrics']; ?></td>
                         <td>
-                            <a href="../song/updateSong.php?id=<?= $row['id']; ?>">Edit</a> |
-                            <a href="../song/deleteSong.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                            <div class="lyricsTable">
+                                <?= $row['lyrics']; ?>
+                            </div>
+                        </td>
+                        <td class="actionTable">
+                            <a href="../song/updateSong.php?id=<?= $row['id']; ?>">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a> |
+                            <a href="../song/deleteSong.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?')">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
                         </td>
                     </tr>
                     <?php $i++; ?>
                 <?php endforeach; ?>
             </table>
         </div>
-    <?php
+        <?php
     }
     ?>
     <footer>

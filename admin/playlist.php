@@ -11,17 +11,29 @@
         </tr>
 
         <?php $i = 1; ?>
-        <?php foreach ($playlist as $row) : ?>
+        <?php foreach ($playlist as $row): ?>
             <tr>
-                <td><?= $i; ?></td>
-                <td><?= $row['name']; ?></td>
-                <td><?= $row['user_name']; ?></td>
                 <td>
-                    <img src="../assets/upload/images/<?= $row['photo']; ?>" alt="">
+                    <?= $i; ?>
+                </td>
+                <!-- harusnya anchor buat ke page baru yg isinya daftar lagu dalam playlist -->
+                <td>
+                    <?= $row['name']; ?>
                 </td>
                 <td>
-                    <a href="../playlist/editPlaylist.php?id=<?= $row['id']; ?>">Edit</a> |
-                    <a href="../playlist/deletePlaylist.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                    <?= $row['user_name']; ?>
+                </td>
+                <td class="coverTable">
+                    <img src="../assets/upload/images/<?= $row['photo']; ?>" alt="">
+                </td>
+                <td class="actionTable">
+                    <a href="../playlist/editPlaylist.php?id=<?= $row['id']; ?>">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a> |
+                    <a href="../playlist/deletePlaylist.php?id=<?= $row['id']; ?>"
+                        onclick="return confirm('Are you sure?')">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
                 </td>
             </tr>
             <?php $i++; ?>

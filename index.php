@@ -58,6 +58,8 @@ if (isset($_POST['findSong'])) {
             }
         }
 
+        // dropdown function
+
         function toggleDropdown(id) {
             const dropdownContent = document.getElementById('dropdown_' + id);
             dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
@@ -78,56 +80,64 @@ if (isset($_POST['findSong'])) {
 </head>
 
 <body>
-    <button class="addSong"><a href="song/addSong.php">Add Song</a></button>
-    <div class="songList">
-        <?php foreach ($song as $row): ?>
-            <!-- <li>
+    <?php
+    if (isset($_GET['p'])) {
+        if ($_GET['p'] == 'listPlaylist') {
+            include "playlist/listPlaylist.php";
+        } else if ($_GET["p"] == "lyrics") {
+            include "lyrics.php";
+        }
+    } else {
+        ?>
+        <div class="songList">
+            <?php foreach ($song as $row): ?>
+                <!-- ini apaan ya? -->
+                <!-- <li>
             <a href="updateSong.php?id=<?= $row['id']; ?>">
                 <?= $row['title']; ?>
             </a>
             </li> -->
-            <div class="songBox">
-                <div>
-                    <div class="photo">
-                        <button onclick="toggleDropdown('<?= $row['id']; ?>')">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <img src="assets/upload/images/<?= $row['photo'] ?>" alt="">
-                        <div id="dropdown_<?= $row['id']; ?>" class="dropdown">
-                            <a href="song/updateSong.php?id=<?= $row['id']; ?>" class="edit">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                edit
-                            </a>
-                            <a href="song/deleteSong.php?id=<?= $row['id']; ?>" class="delete">
-                                <i class="fa-solid fa-trash"></i>
-                                delete
-                            </a>
+                <div class="songBox">
+                    <div>
+                        <div class="photo">
+                            <button onclick="toggleDropdown('<?= $row['id']; ?>')">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                            <img src="assets/upload/images/<?= $row['photo'] ?>" alt="">
+                            <div id="dropdown_<?= $row['id']; ?>" class="dropdown">
+                                <!-- add to playlist -->
+                                <a href="song/updateSong.php?id=<?= $row['id']; ?>" class="edit">
+                                    <i class="fa-regular fa-square-plus"></i>
+                                    Add to Playlist
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="titlePlayBox">
-                        <div class="titleBox">
-                            <h4>
-                                <?= $row['title']; ?>
-                            </h4>
-                            <h5>
-                                <?= $row['artist']; ?>
-                            </h5>
-                        </div>
-                        <div class="playBox">
-                            <?php
-                            $musicPath = './assets/upload/music/' . $row['music'];
-                            ?>
-                            <audio id="music<?= $row['id']; ?>" src="<?= $musicPath; ?>"></audio>
-                            <a href="javascript:void(0);" onclick="toggleMusic('<?= $row['id']; ?>')"
-                                id="playPauseButton_<?= $row['id']; ?>" class="playButton">
-                                <i class="fa-solid fa-play"></i>
-                            </a>
+                        <div class="titlePlayBox">
+                            <div class="titleBox">
+                                <h4>
+                                    <?= $row['title']; ?>
+                                </h4>
+                                <h5>
+                                    <?= $row['artist']; ?>
+                                </h5>
+                            </div>
+                            <div class="playBox">
+                                <?php
+                                $musicPath = './assets/upload/music/' . $row['music'];
+                                ?>
+                                <audio id="music<?= $row['id']; ?>" src="<?= $musicPath; ?>"></audio>
+                                <a href="javascript:void(0);" onclick="toggleMusic('<?= $row['id']; ?>')"
+                                    id="playPauseButton_<?= $row['id']; ?>" class="playButton">
+                                    <i class="fa-solid fa-play"></i>
+                                </a>
+                                <a href="?p=lyrics"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
+            <?php endforeach; ?>
+        </div>
+    <?php } ?>
 </body>
 
 </html>

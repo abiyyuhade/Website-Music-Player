@@ -1,4 +1,5 @@
 <?php
+include "inc/functions.php";
 session_start();
 
 if(isset($_SESSION['login']) && $_SESSION['login'] === true) {
@@ -30,7 +31,7 @@ if(isset($_POST['login'])) {
 
     $error = true;
 }
-include "inc/functions.php";
+
 ?>
 
 <!DOCTYPE html>

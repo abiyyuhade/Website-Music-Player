@@ -9,16 +9,24 @@
         </tr>
 
         <?php $i = 1; ?>
-        <?php foreach ($genre as $row) : ?>
-        <tr>
-            <td><?= $i; ?></td>
-            <td><?= $row['name']; ?></td>
-            <td>
-                <a href="../genre/editGenre.php?id=<?= $row['id']; ?>">Edit</a> |
-                <a href="../genre/deleteGenre.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
-            </td>
-        </tr>
-        <?php $i++; ?>
+        <?php foreach ($genre as $row): ?>
+            <tr>
+                <td>
+                    <?= $i; ?>
+                </td>
+                <td>
+                    <?= $row['name']; ?>
+                </td>
+                <td class="actionTable">
+                    <a href="../genre/editGenre.php?id=<?= $row['id']; ?>">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a> |
+                    <a href="../genre/deleteGenre.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?')">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            <?php $i++; ?>
         <?php endforeach; ?>
     </table>
 </div>

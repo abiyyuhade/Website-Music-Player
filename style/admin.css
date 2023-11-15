@@ -97,7 +97,7 @@ tr,th,td {
     border: 1px solid white;
     color: white;
     text-align: center;
-    background-color: rgb(53, 53, 53);
+    background-color: rgb(71, 71, 71);
 }
 
 th {
@@ -109,11 +109,25 @@ th {
 }
 
 .title, .artist, .genre, .cover {
-    width: 200px;
+    width: 195px;
+}
+
+.coverTable img {
+    width: 195px;
 }
 
 .lyrics {
     width: 500px;
+}
+
+.lyricsTable {
+    overflow: auto;
+    height: 195px;
+}
+
+.actionTable a {
+    color: white;
+    font-size: 20px;
 }
 
 footer {

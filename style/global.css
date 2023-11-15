@@ -1,5 +1,5 @@
 body {
-    margin-top: 100px;
+    margin-top: 120px;
     background-color: black;
     margin-left: 25px;
     margin-right: 25px;
@@ -11,6 +11,10 @@ body {
     padding: 0;
     font-family: Roboto;
     font-weight: 400;
+}
+
+a {
+    text-decoration: none;
 }
 /* navBar */
 
@@ -126,7 +130,7 @@ nav .navRight a {
    border: 1px solid black; 
    width: 200px;
    border-radius: 10px;
-   background-color: #9d9ca9;
+   background-color: rgb(71, 71, 71);
    margin: 0 20px;
 }
 
@@ -146,14 +150,15 @@ nav .navRight a {
 
 .songBox .photo .fa-ellipsis-vertical {
     font-size: 18px;
+    color: white;
 }
 
 .songBox .photo .dropdown {
     position: absolute;
     top: 6px;
     right: 6px;
-    background-color: pink;
-    width: 80px;
+    background-color: rgb(53, 53, 53);;
+    width: 130px;
     border-radius: 5px;
     display: none;
 }
@@ -167,8 +172,8 @@ nav .navRight a {
 }
 
 .songBox .photo .dropdown a i {
-    margin-right: 5px;
-    font-size: 15px;
+    margin-right: 10px;
+    font-size: 20px;
 }
 
 .songBox .photo img {
@@ -192,26 +197,29 @@ nav .navRight a {
 
 .songBox .titlePlayBox .titleBox h4 {
     padding: 5px 0;
+    color: white;
 }
 
 .songBox .titlePlayBox .titleBox h5 {
     margin-bottom: 1px;
+    color: white;
 }
 
 .songBox .titlePlayBox .playBox {
     width: 25%;
     display: flex;
     justify-content: center;
+    padding-right: 5px;
 }
 
 .songBox .titlePlayBox .playBox a {
     color: black;
-    font-size: 20px;
+    font-size: 22px;
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 38px;
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -334,6 +342,97 @@ nav .navRight a {
     width: 190px;
 }
 
+/* List Playlist  */
+
+.playlistBox {
+    background-color: pink;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.playlistBox .coverBox {
+    width: 200px;
+    text-align: center;
+    position: relative;
+}
+
+.playlistBox .coverBox img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.playlistBox .coverBox div {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(53, 53, 53);
+    opacity: 0.9;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.playlistBox .descBox {
+    padding: 10px;
+    padding-bottom: 0;
+    color: white;
+}
+
+/* lyrics */
+
+.lyricsBox {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 101px;
+    bottom: 101px;
+}
+
+.lyricsBox .lyricsCover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.lyricsBox .lyricsCover img {
+    height: 600px;
+}
+
+.lyricsBox .itsLyrics {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lyricsBox .itsLyrics h2 {
+    margin-top: 30px;
+    height: 40px;
+    width: 700px;
+    text-align: center;
+    border-bottom: 3px solid rgb(100, 100, 100);
+    color: white;
+}
+
+.lyricsBox .itsLyrics p {
+    margin-top: 30px;
+    height: 500px;
+    width: 650;
+    overflow: auto;
+    color: white;
+}
+
 /* footer */
 
 footer {
@@ -346,6 +445,7 @@ footer {
     left: 0;
     right: 0;
     background-color: rgb(37, 37, 37);
+    border-top: 1px solid rgb(100, 100, 100);
 }
 
 footer .footLeft {
