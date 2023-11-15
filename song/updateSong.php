@@ -8,6 +8,8 @@ $id = $_GET['id'];
 
 $data = query("SELECT * FROM songs WHERE id = '$id'")[0];
 
+$genre = query("SELECT * FROM genres");
+
 if (isset($_POST['update'])) {
 
     if (updateSong($_POST) > 0) {
@@ -34,9 +36,7 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/global.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Update Song</title>
 </head>
 
@@ -48,10 +48,21 @@ if (isset($_POST['update'])) {
         <input type="hidden" name="id" value="<?= $data['id']; ?>">
         <div class="addLeft">
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" placeholder="Title of the Song" value="<?= $data['title']; ?>"
-                required>
+            <input type="text" name="title" id="title" placeholder="Title of the Song" value="<?= $data['title']; ?>" required>
             <label for="artist">Artist</label>
             <input type="text" name="artist" id="artist" placeholder="Artist" value="<?= $data['artist']; ?>" required>
+
+            <!-- Gua nambahin dari sini pan -->
+            <label for="genre">Genre</label>
+            <select name="genre" id="genre">
+                <?php foreach ($genre as $row) : ?>
+                    <option value="<?= $row['id'] ?>" <?= ($row['id'] == $data['id_genre']) ? 'selected' : ''; ?>>
+                        <?= $row['name'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <!-- Sampe sini -->
+
             <div class="fileBox">
                 <div>
                     <label for=""> Current Cover</label>

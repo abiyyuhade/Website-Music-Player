@@ -7,7 +7,7 @@ if(isset($_POST['addPlaylist'])) {
         echo "
             <script>
             alert('The new playlist has been successfully added!');
-            document.location.href = 'playlist.php';
+            document.location.href = 'listPlaylist.php';
             </script>
         ";
     } else {

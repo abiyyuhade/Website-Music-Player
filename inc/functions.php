@@ -51,6 +51,39 @@ function register($data) {
     return mysqli_affected_rows($conn);
 }
 
+function addGenre($data) {
+    global $conn;
+
+    $name = $data['name'];
+
+    $query = "INSERT INTO genres (name) VALUES ('$name')";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+
+function editGenre($data) {
+    global $conn;
+
+    $id = $data['id'];
+    $name = $data['name'];
+
+    $query = "UPDATE genres SET name = '$name' WHERE id = '$id'";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function deleteGenre($id) {
+    global $conn;
+
+    $query = "DELETE FROM genres WHERE id = $id";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
 function addSong($data) {
     global $conn;
     $title = $data['title'];
@@ -67,7 +100,9 @@ function addSong($data) {
         return false;
     }
 
-    $query = "INSERT INTO songs (title, artist, lyrics, photo, music) VALUES ('$title', '$artist', '$lyrics', '$photo', '$music')";
+    $genre = $data['genre'];
+
+    $query = "INSERT INTO songs (title, artist, lyrics, photo, music, id_genre) VALUES ('$title', '$artist', '$lyrics', '$photo', '$music', '$genre')";
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
@@ -178,8 +213,9 @@ function updateSong($data) {
     $title = $data['title'];
     $artist = $data['artist'];
     $lyrics = mysqli_real_escape_string($conn, $data['lyrics']);
+    $genre = $data['genre'];
 
-    $query = "UPDATE songs SET title = '$title', artist = '$artist', lyrics = '$lyrics' WHERE id = '$id'";
+    $query = "UPDATE songs SET title = '$title', artist = '$artist', lyrics = '$lyrics', id_genre = '$genre' WHERE id = '$id'";
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }

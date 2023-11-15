@@ -11,7 +11,7 @@ if(isset($_POST['editPlaylist'])) {
         echo "
             <script>
             alert('The playlist has been successfully updated!');
-            document.location.href = 'playlist.php';
+            document.location.href = 'listPlaylist.php';
             </script>
         ";
     } else {

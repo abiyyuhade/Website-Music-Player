@@ -7,7 +7,7 @@ if(deletePlaylist($id) > 0) {
     echo "
         <script>
         alert('The playlist has been successfully deleted!');
-        document.location.href = 'playlist.php';
+        document.location.href = 'listPlaylist.php';
         </script>
         ";
 } else {
