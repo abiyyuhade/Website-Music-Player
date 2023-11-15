@@ -6,10 +6,7 @@ if(isset($_SESSION['login']) && $_SESSION['login'] === true) {
     exit;
 }
 
-include "inc/functions.php";
-
 if(isset($_POST['login'])) {
-    
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -20,14 +17,20 @@ if(isset($_POST['login'])) {
         if(password_verify($password, $row['password'])) {
             $_SESSION['login'] = true;
             $_SESSION['id_user'] = $row['id'];
+            $_SESSION['role'] = $row['role'];
 
-            header("Location: index.php");
+            if ($row['role'] === 'admin') {
+                header("Location: admin/admin.php");
+            } else {
+                header("Location: index.php");
+            }
             exit;
         }
     }
 
     $error = true;
 }
+include "inc/functions.php";
 ?>
 
 <!DOCTYPE html>

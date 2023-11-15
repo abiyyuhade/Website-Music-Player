@@ -1,5 +1,16 @@
 <?php
+session_start();
 include("../inc/functions.php");
+
+if (!isset($_SESSION['login'])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: ../index.php");
+    exit;
+}
 
 // Song Page
 $song = query("SELECT songs.*, genres.name AS genre_name FROM songs LEFT JOIN genres ON songs.id_genre = genres.id");
