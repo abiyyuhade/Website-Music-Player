@@ -130,7 +130,7 @@ if (isset($_POST['findSong'])) {
                                     id="playPauseButton_<?= $row['id']; ?>" class="playButton">
                                     <i class="fa-solid fa-play"></i>
                                 </a>
-                                <a href="?p=lyrics"></a>
+                                <a href="?p=lyrics&id=<?= $row['id']; ?>"></a>
                             </div>
                         </div>
                     </div>

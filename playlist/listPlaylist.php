@@ -1,18 +1,18 @@
 <div class="listPlaylist">
 <?php 
-// loop here brodi
+$playlist = query("SELECT playlists.*, users.username AS user_name FROM playlists LEFT JOIN users ON playlists.id_user = users.id")[0];
 ?>
 <a href="?p=lyrics">
     <div class="playlistBox">
         <div class="coverBox">
-            <img src="assets/images/ado.jpeg" alt="">
+            <img src="assets/upload/images/<?= $playlist['photo'] ?>" alt="">
             <div>
-                <h2>Playlist Name</h2>
+                <h2><?= $playlist['name']; ?></h2>
             </div>
         </div>
         <div class="descBox">
-            <h2>Playlist Name</h2>
-            <p>Artist Included</p>
+            <h2><?= $playlist['name']; ?></h2>
+            <p>Made By <?= $playlist['user_name']; ?></p>
         </div>
     </div>
 </a>
