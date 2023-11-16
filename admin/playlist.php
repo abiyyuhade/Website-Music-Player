@@ -1,5 +1,5 @@
 <h1 class="pageName">Playlist</h1>
-<button class="addSong"><a href="../playlist/addPlaylist.php">Add Playlist</a></button>
+<button class="addSong"><a href="?p=addPlaylist">Add Playlist</a></button>
 <div class="tableBox">
     <table>
         <tr>
@@ -27,7 +27,7 @@
                     <img src="../assets/upload/images/<?= $row['photo']; ?>" alt="">
                 </td>
                 <td class="actionTable">
-                    <a href="../playlist/editPlaylist.php?id=<?= $row['id']; ?>">
+                    <a href="?p=editPlaylist&id=<?= $row['id']; ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a> |
                     <a href="../playlist/deletePlaylist.php?id=<?= $row['id']; ?>"

@@ -1,5 +1,5 @@
 <?php 
-session_start();
+// session_start();
 if (!isset($_SESSION['login'])) {
     header("Location: ../login.php");
     exit;
@@ -10,7 +10,7 @@ if ($_SESSION['role'] !== 'admin') {
     exit;
 }
 
-include "../inc/functions.php";
+// include "../inc/functions.php";
 
 if(isset($_POST['addGenre'])) {
     if(addGenre($_POST) > 0) {
@@ -38,11 +38,15 @@ if(isset($_POST['addGenre'])) {
     <title>Document</title>
 </head>
 <body>
-    <h1>Add New Genre</h1>
-    <form action="" method="post">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" autocomplete="off" required><br><br>
-        <button type="submit" name="addGenre">Add New Genre</button>
+    <h1 class="addTitle">Add New Genre</h1>
+    <form action="" method="post" enctype="multipart/form-data" class="addBox">
+        <div class="addLeft">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Genre Name" required>
+        </div>
+        <div class="addRight">
+            <button type="submit" name="addGenre">Add new Genre</button>
+        </div>
     </form>
 </body>
 </html>

@@ -1,6 +1,5 @@
 <?php 
 session_start();
-include "../inc/functions.php";
 
 if(isset($_POST['addPlaylist'])) {
     if(addPlaylist($_POST) > 0) {
@@ -28,13 +27,32 @@ if(isset($_POST['addPlaylist'])) {
     <title>Document</title>
 </head>
 <body>
-    <h1>Add New Playlist</h1>
-    <form action="" method="post" enctype="multipart/form-data">
+    <h1 class="addTitle">Add New Playlist</h1>
+    <!-- <form action="" method="post" enctype="multipart/form-data">
         <label for="name">Name</label>
         <input type="text" name="name" id="name" autocomplete="off" required><br><br>
         <label for="photo">Photo</label>
         <input type="file" name="photo" id="photo"><br><br>
         <button type="submit" name="addPlaylist">Add Playlist</button>
+    </form> -->
+    <form action="" method="post" enctype="multipart/form-data" class="addBox">
+        <div class="addLeft">
+            <label for="name">Playlist Name</label>
+            <input type="text" name="name" id="name" placeholder="Name of the Playlist" required>
+            <div class="fileBox">
+                <div>
+                    <label for="">Cover</label>
+                    <label for="photo" class="file">
+                        <i class="fa-solid fa-image"></i>
+                        <p>Add Cover Album</p>
+                    </label>
+                    <input type="file" name="photo" id="photo">
+                </div>
+            </div>
+        </div>
+        <div class="addRight">
+            <button type="submit" name="addPlaylist">Add Playlist</button>
+        </div>
     </form>
 </body>
 </html>

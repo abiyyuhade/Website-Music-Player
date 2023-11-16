@@ -69,10 +69,23 @@ $playlist = query("SELECT playlists.*, users.username AS user_name FROM playlist
             include "playlist.php";
         } elseif ($_GET["p"] == "genre") {
             include "genre.php";
+        } elseif ($_GET["p"] == "addGenre") {
+            include "../genre/addGenre.php";
+        }  elseif ($_GET["p"] == "editGenre") {
+            include "../genre/editGenre.php";
+        }  elseif ($_GET["p"] == "addSong") {
+            include "../song/addSong.php";
+        }  elseif ($_GET["p"] == "editSong") {
+            include "../song/updateSong.php";
+        }  elseif ($_GET["p"] == "addPlaylist") {
+            include "../playlist/addPlaylist.php";
+        }  elseif ($_GET["p"] == "editPlaylist") {
+            include "../playlist/editPlaylist.php";
         }
+
     } else { ?>
         <h1 class="pageName">Song</h1>
-        <button class="addSong"><a href="../song/addSong.php">Add Song</a></button>
+        <button class="addSong"><a href="?p=addSong">Add Song</a></button>
         <div class="tableBox">
             <table>
                 <tr>
@@ -109,7 +122,7 @@ $playlist = query("SELECT playlists.*, users.username AS user_name FROM playlist
                             </div>
                         </td>
                         <td class="actionTable">
-                            <a href="../song/updateSong.php?id=<?= $row['id']; ?>">
+                            <a href="?p=editSong&id=<?= $row['id']; ?>">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a> |
                             <a href="../song/deleteSong.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?')">

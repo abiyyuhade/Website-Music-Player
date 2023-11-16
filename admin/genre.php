@@ -1,5 +1,5 @@
 <h1 class="pageName">Genre</h1>
-<button class="addSong"><a href="../genre/addGenre.php">Add Genre</a></button>
+<button class="addSong"><a href="?p=addGenre">Add Genre</a></button>
 <div class="tableBox">
     <table>
         <tr>
@@ -18,7 +18,7 @@
                     <?= $row['name']; ?>
                 </td>
                 <td class="actionTable">
-                    <a href="../genre/editGenre.php?id=<?= $row['id']; ?>">
+                    <a href="?p=editGenre&id=<?= $row['id']; ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a> |
                     <a href="../genre/deleteGenre.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?')">

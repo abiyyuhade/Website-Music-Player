@@ -1,6 +1,5 @@
 <?php
 session_start();
-include "../inc/functions.php";
 
 $id = $_GET['id'];
 
@@ -32,7 +31,6 @@ if(isset($_POST['editPlaylist'])) {
     <title>Document</title>
 </head>
 <body>
-    <h1>Edit Playlist</h1>
     <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $data['id']; ?>">
         <label for="name">Name</label>
