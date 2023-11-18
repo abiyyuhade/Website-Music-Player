@@ -9,7 +9,17 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
-$song = query("SELECT * FROM songs ORDER BY title ASC");
+$songs = query("SELECT songs.*, genres.name AS genre_name FROM songs LEFT JOIN genres ON songs.id_genre = genres.id ORDER BY genres.name ASC, songs.title ASC");
+
+$groupedSongs = array();
+
+foreach ($songs as $song) {
+    $genre = $song['genre_name'];
+    if (!isset($groupedSongs[$genre])) {
+        $groupedSongs[$genre] = array();
+    }
+    $groupedSongs[$genre][] = $song;
+}
 
 if (isset($_POST['findSong'])) {
     $song = findSong($_POST['keyword']);
@@ -23,9 +33,7 @@ if (isset($_POST['findSong'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/global.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Index Brok</title>
     <script>
         var currentPlayingMusicId = null;
@@ -66,9 +74,9 @@ if (isset($_POST['findSong'])) {
         }
 
         // Menutup dropdown saat pengguna mengklik di luar dropdown
-        window.onclick = function (event) {
+        window.onclick = function(event) {
             const photos = document.querySelectorAll('.photo');
-            photos.forEach(function (photo) {
+            photos.forEach(function(photo) {
                 const dropdownContent = photo.querySelector('.dropdown');
                 if (event.target !== photo && !photo.contains(event.target)) {
                     dropdownContent.style.display = 'none';
@@ -88,51 +96,36 @@ if (isset($_POST['findSong'])) {
             include "lyrics.php";
         }
     } else {
-        ?>
+    ?>
         <div class="songList">
-            <?php foreach ($song as $row): ?>
-                <!-- ini apaan ya? -->
-                <!-- <li>
-            <a href="updateSong.php?id=<?= $row['id']; ?>">
-                <?= $row['title']; ?>
-            </a>
-            </li> -->
-                <div class="songBox">
-                    <div>
-                        <div class="photo">
-                            <button onclick="toggleDropdown('<?= $row['id']; ?>')">
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
-                            </button>
-                            <img src="assets/upload/images/<?= $row['photo'] ?>" alt="">
-                            <div id="dropdown_<?= $row['id']; ?>" class="dropdown">
-                                <!-- add to playlist -->
-                                <a href="song/updateSong.php?id=<?= $row['id']; ?>" class="edit">
-                                    <i class="fa-regular fa-square-plus"></i>
-                                    Add to Playlist
-                                </a>
+            <?php foreach ($groupedSongs as $genre => $songsByGenre) : ?>
+                <div class="genreSection">
+                    <!-- Nama genre d sini pan -->
+                    <h2 style="color: white;"><?= $genre ?></h2>
+                    <div class="songList">
+                        <?php foreach ($songsByGenre as $song) : ?>
+                            <div class="songBox">
+                                <div class="photo">
+                                    <img src="assets/upload/images/<?= $song['photo'] ?>" alt="">
+                                </div>
+                                <div class="titlePlayBox">
+                                    <div class="titleBox">
+                                        <h4><?= $song['title']; ?></h4>
+                                        <h5><?= $song['artist']; ?></h5>
+                                    </div>
+                                    <div class="playBox">
+                                        <?php
+                                        $musicPath = './assets/upload/music/' . $song['music'];
+                                        ?>
+                                        <audio id="music<?= $song['id']; ?>" src="<?= $musicPath; ?>"></audio>
+                                        <a href="javascript:void(0);" onclick="toggleMusic('<?= $song['id']; ?>')" id="playPauseButton_<?= $song['id']; ?>" class="playButton">
+                                            <i class="fa-solid fa-play"></i>
+                                        </a>
+                                        <a href="?p=lyrics&id=<?= $song['id']; ?>"></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="titlePlayBox">
-                            <div class="titleBox">
-                                <h4>
-                                    <?= $row['title']; ?>
-                                </h4>
-                                <h5>
-                                    <?= $row['artist']; ?>
-                                </h5>
-                            </div>
-                            <div class="playBox">
-                                <?php
-                                $musicPath = './assets/upload/music/' . $row['music'];
-                                ?>
-                                <audio id="music<?= $row['id']; ?>" src="<?= $musicPath; ?>"></audio>
-                                <a href="javascript:void(0);" onclick="toggleMusic('<?= $row['id']; ?>')"
-                                    id="playPauseButton_<?= $row['id']; ?>" class="playButton">
-                                    <i class="fa-solid fa-play"></i>
-                                </a>
-                                <a href="?p=lyrics&id=<?= $row['id']; ?>"></a>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             <?php endforeach; ?>
