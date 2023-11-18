@@ -34,6 +34,7 @@ nav {
 	height: 100px;
 	background-color: black;
     border-bottom: 2px solid rgb(100, 100, 100);
+    z-index: 9;
 }
 
 nav .navLeft {
@@ -124,10 +125,22 @@ nav .navRight a {
 
 .songList {
     display: flex;
+    width: 100%;
+    background-color: rgb(100, 100, 100);
+    padding: 15px 0;
+    border-radius: 10px;
 }
 
-.songBox {
-   border: 1px solid black; 
+.genreTitle {
+    color: white;
+    margin: 15px 0;
+    background-color: rgb(100, 100, 100);
+    width: 130px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.songBox { 
    width: 200px;
    border-radius: 10px;
    background-color: rgb(71, 71, 71);
@@ -446,6 +459,7 @@ footer {
     right: 0;
     background-color: rgb(37, 37, 37);
     border-top: 1px solid rgb(100, 100, 100);
+    z-index: 9;
 }
 
 footer .footLeft {

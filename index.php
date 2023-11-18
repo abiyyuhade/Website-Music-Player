@@ -97,11 +97,11 @@ if (isset($_POST['findSong'])) {
         }
     } else {
     ?>
-        <div class="songList">
+        <div class="songListBox">
             <?php foreach ($groupedSongs as $genre => $songsByGenre) : ?>
                 <div class="genreSection">
                     <!-- Nama genre d sini pan -->
-                    <h2 style="color: white;"><?= $genre ?></h2>
+                    <h2 class="genreTitle"><?= $genre ?></h2>
                     <div class="songList">
                         <?php foreach ($songsByGenre as $song) : ?>
                             <div class="songBox">
