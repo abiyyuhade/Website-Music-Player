@@ -94,6 +94,8 @@ if (isset($_POST['findSong'])) {
             include "playlist/listPlaylist.php";
         } else if ($_GET["p"] == "lyrics") {
             include "lyrics.php";
+        } else if ($_GET["p"] == "playlist") {
+            include "playlist.php";
         }
     } else {
     ?>

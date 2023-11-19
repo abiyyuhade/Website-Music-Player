@@ -446,6 +446,152 @@ nav .navRight a {
     color: white;
 }
 
+/* playlist */
+
+.playlistNav {
+    background-color: #2E2E2E;
+    position: fixed;
+    left: 10px;
+    top: 130px;
+    bottom: 130px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+}
+
+.playlistNav form {
+    background-color: #000000;
+    width: 250px;
+    border-radius: 10px;
+}
+
+.playlistNav form button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 15px;
+}
+
+.playlistNav h2 {
+    color: #525252;
+    margin: 20px 0;
+    background-color: #000000;
+    width: 150px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.playlistNav input {
+    width: 220px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color: #000000;
+}
+
+.playlistNav input:focus {
+    outline: none;
+}
+
+.playlistNav .listPlaylist {
+    display: flex;
+    margin: 20px 0;
+    align-items: center;
+}
+
+.playlistNav .listPlaylist img {
+    width: 50px;
+    border-radius: 10px;
+}
+
+.playlistNav .listPlaylist div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 25px;
+    color: white;
+}
+
+.playlistNav .listPlaylist div p {
+    color: #525252;
+}
+
+.playlistNav .listPlaylist i {
+    color: white;
+    font-size: 20px;
+}
+
+.playlistContainer {
+    margin-left: 350px;
+    margin-top: 130px;
+}
+
+.playlistContainer .playlistDesc {
+    background-color: #2E2E2E;
+    display: flex;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.playlistContainer .playlistDesc img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+.playlistContainer .playlistDesc div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 30px;
+    color: white;
+}
+
+.playlistContainer .playlistContent {
+    background-color: #2E2E2E;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.playlistContent .contentHead {
+    display: flex;
+    border-bottom: 3px solid black;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    right: 30px;
+    height: 100px;
+    align-items: end;
+    padding-bottom: 10px;
+}
+
+.playlistContent .contentHead h3 {
+    margin: 0 30px;
+    color: white;
+}
+
+.playlistContent .contentBox {
+    margin-top: 130px;
+    display: flex;
+    padding-left: 60px;
+    align-items: center;
+    color: white;
+}
+
+.playlistContent .contentBox img {
+    width: 80px;
+    margin: 0 50px;
+}
+
 /* footer */
 
 footer {
