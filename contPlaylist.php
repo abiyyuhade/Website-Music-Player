@@ -27,8 +27,12 @@ $song = query("SELECT songs.title AS song_title, songs.artist AS song_artist, so
     <div class="playlistDesc">
         <img src="assets/upload/images/<?= $pl['playlist_photo'] ?>" alt="">
         <div>
-            <h1><?= $pl['playlist_name'] ?></h1>
-            <h5>Made By <?= $pl['user_name'] ?></h5>
+            <h1>
+                <?= $pl['playlist_name'] ?>
+            </h1>
+            <h5>Made By
+                <?= $pl['user_name'] ?>
+            </h5>
         </div>
     </div>
     <div class="playlistContent">
@@ -36,17 +40,25 @@ $song = query("SELECT songs.title AS song_title, songs.artist AS song_artist, so
             <h3>#</h3>
             <h3>Title</h3>
         </div>
-        <div class="contentBox">
-            <?php $i = 1; ?>
-            <?php foreach ($song as $row) : ?>
-                <h1><?= $i; ?></h1>
-                <img src="assets/upload/images/<?= $row['song_photo'] ?>" alt="">
-                <div>
-                    <h3><?= $row['song_title'] ?></h3>
-                    <h5><?= $row['song_artist'] ?></h5>
+        <?php $i = 1; ?>
+        <?php foreach ($song as $row): ?>
+            <a href="?p=lyrics&id=<?= $row['id']; ?>">
+                <div class="contentBox">
+                    <h1>
+                        <?= $i; ?>
+                    </h1>
+                    <img src="assets/upload/images/<?= $row['song_photo'] ?>" alt="">
+                    <div>
+                        <h3>
+                            <?= $row['song_title'] ?>
+                        </h3>
+                        <h5>
+                            <?= $row['song_artist'] ?>
+                        </h5>
+                    </div>
+                    <?php $i++; ?>
                 </div>
-                <?php $i++; ?>
-            <?php endforeach; ?>
-        </div>
+            </a>
+        <?php endforeach; ?>
     </div>
 </div>

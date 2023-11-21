@@ -111,37 +111,37 @@ if (isset($_POST['findSong'])) {
         </div>
     <?php } ?>
     <script>
-        var currentPlayingMusicId = null;
+        // var currentPlayingMusicId = null;
 
-        function toggleMusic(musicId) {
-            var audioElement = document.getElementById('music' + musicId);
-            var playButton = document.getElementById('playPauseButton_' + musicId);
+        // function toggleMusic(musicId) {
+        //     var audioElement = document.getElementById('music' + musicId);
+        //     var playButton = document.getElementById('playPauseButton_' + musicId);
 
-            if (currentPlayingMusicId === musicId) {
-                if (audioElement.paused) {
-                    audioElement.play();
-                    // playButton.innerText = 'Pause';
-                } else {
-                    audioElement.pause();
-                    // playButton.innerText = 'Play';
-                }
-            } else {
-                var currentPlayingAudio = document.getElementById('music' + currentPlayingMusicId);
-                if (currentPlayingAudio) {
-                    currentPlayingAudio.pause();
-                    var currentPlayingButton = document.getElementById('playPauseButton_' + currentPlayingMusicId);
-                    if (currentPlayingButton) {
-                        // currentPlayingButton.innerText = 'Play';
-                    }
-                }
+        //     if (currentPlayingMusicId === musicId) {
+        //         if (audioElement.paused) {
+        //             audioElement.play();
+        //             // playButton.innerText = 'Pause';
+        //         } else {
+        //             audioElement.pause();
+        //             // playButton.innerText = 'Play';
+        //         }
+        //     } else {
+        //         var currentPlayingAudio = document.getElementById('music' + currentPlayingMusicId);
+        //         if (currentPlayingAudio) {
+        //             currentPlayingAudio.pause();
+        //             var currentPlayingButton = document.getElementById('playPauseButton_' + currentPlayingMusicId);
+        //             if (currentPlayingButton) {
+        //                 // currentPlayingButton.innerText = 'Play';
+        //             }
+        //         }
 
-                audioElement.play();
-                currentPlayingMusicId = musicId;
-                // playButton.innerText = 'Pause';
-            }
-        }
+        //         audioElement.play();
+        //         currentPlayingMusicId = musicId;
+        //         // playButton.innerText = 'Pause';
+        //     }
+        // }
 
-        var currentPlayingMusicId = null;
+        // var currentPlayingMusicId = null;
         var currentDropdownId = null; // Tambahkan variabel untuk menyimpan id dropdown terakhir
 
         function toggleDropdown(id) {
