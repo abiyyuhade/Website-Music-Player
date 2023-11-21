@@ -1,3 +1,7 @@
+<?php
+$playlist = query("SELECT playlists.*, users.username AS user_name FROM playlists LEFT JOIN users ON playlists.id_user = users.id");
+?>
+
 <div class="playlistNav">
     <h2>Playlist</h2>
     <form action="">
@@ -6,14 +10,16 @@
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </form>
+    <?php foreach($playlist as $row) : ?>
     <div class="listPlaylist">
-        <img src="assets/images/ado.jpeg" alt="">
+        <img src="assets/upload/images/<?= $row['photo'] ?>" alt="">
         <div>
-            <h4>Nama Playlist</h4>
-            <p>Made by</p>
+            <h4><?= $row['name'] ?></h4>
+            <p>Made by <?= $row['user_name'] ?></p>
         </div>
         <i class="fa-solid fa-volume-high"></i>
     </div>
+    <?php endforeach; ?>
 </div>
 <div class="playlistContainer">
     <div class="playlistDesc">
