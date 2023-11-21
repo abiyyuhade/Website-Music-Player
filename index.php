@@ -11,6 +11,8 @@ if (!isset($_SESSION['login'])) {
 
 $songs = query("SELECT songs.*, genres.name AS genre_name FROM songs LEFT JOIN genres ON songs.id_genre = genres.id ORDER BY genres.name ASC, songs.title ASC");
 
+$playlist = query("SELECT playlists.*, users.username AS user_name FROM playlists LEFT JOIN users ON playlists.id_user = users.id");
+
 $groupedSongs = array();
 
 foreach ($songs as $song) {
@@ -74,9 +76,11 @@ if (isset($_POST['findSong'])) {
                                         </a>
                                     </div>
                                     <div class="playlistModal" id="modal_<?= $song['id']; ?>">
-                                        <a href="" class="edit">
-                                            list1
+                                        <?php foreach ($playlist as $pl): ?>
+                                        <a href="?id=<?= $song['id']; ?>&what=<?= $pl['id']; ?>" class="edit">
+                                            <?= $pl['name']; ?>
                                         </a>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <div class="titlePlayBox">
