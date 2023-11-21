@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2023 at 05:04 AM
+-- Generation Time: Nov 21, 2023 at 06:46 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -59,7 +59,8 @@ CREATE TABLE `playlists` (
 --
 
 INSERT INTO `playlists` (`id`, `name`, `photo`, `id_user`) VALUES
-(6, 'test duls ga sie', '65545eb99427f.jpg', 1);
+(6, 'test duls ga sie', '65545eb99427f.jpg', 1),
+(7, 'apa kek', '655cbb9dd0827.jpeg', 1);
 
 -- --------------------------------------------------------
 
@@ -72,6 +73,16 @@ CREATE TABLE `playlistsong` (
   `id_playlist` int(11) NOT NULL,
   `id_song` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `playlistsong`
+--
+
+INSERT INTO `playlistsong` (`id`, `id_playlist`, `id_song`) VALUES
+(1, 6, 21),
+(2, 7, 21),
+(3, 6, 20),
+(4, 7, 19);
 
 -- --------------------------------------------------------
 
@@ -173,13 +184,13 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `playlists`
 --
 ALTER TABLE `playlists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `playlistsong`
 --
 ALTER TABLE `playlistsong`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `songs`
