@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $id = $_GET['id'];
 
@@ -45,7 +44,7 @@ if (isset($_POST['editPlaylist'])) {
                         <?php
                         $photoPath = '../assets/upload/images/' . $data['photo'];
                         if (file_exists($photoPath)) {
-                            echo '<img src="' . $photoPath . '" width="300px" class="cover-album">';
+                            echo '<img src="' . $photoPath . '" width="190px" class="cover-album">';
                         } else {
                             echo 'Image not found';
                         }

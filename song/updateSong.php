@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if (!isset($_SESSION['login'])) {
     header("Location: ../login.php");
     exit;
@@ -72,7 +72,7 @@ if (isset($_POST['update'])) {
                         <?php
                         $photoPath = '../assets/upload/images/' . $data['photo'];
                         if (file_exists($photoPath)) {
-                            echo '<img src="' . $photoPath . '" width="300px" class="cover-album">';
+                            echo '<img src="' . $photoPath . '" width="190px" class="cover-album">';
                         } else {
                             echo 'Image not found';
                         }

@@ -1,5 +1,4 @@
 <?php 
-session_start();
 
 if(isset($_POST['addPlaylist'])) {
     if(addPlaylist($_POST) > 0) {

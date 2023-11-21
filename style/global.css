@@ -176,6 +176,25 @@ nav .navRight a {
     display: none;
 }
 
+.songBox .photo .playlistModal {
+    position: absolute;
+    top: 6px;
+    right: -130px;
+    background-color: rgb(53, 53, 53);
+    width: 130px;
+    border-radius: 5px;
+    display: none;
+    z-index: 9;
+}
+
+.songBox .photo .playlistModal a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    padding: 5px 7px;
+    align-items: center;
+}
+
 .songBox .photo .dropdown a {
     display: flex;
     text-decoration: none;
