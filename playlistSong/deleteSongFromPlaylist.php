@@ -4,7 +4,7 @@ include "../inc/functions.php";
 $idSong = $_GET['idSong'];
 $idPl = $_GET['idPl'];
 
-if(addSongToPlaylist($idSong, $idPl) > 0) {
+if(deleteSongFromPlaylist($idSong, $idPl) > 0) {
     echo "
         <script>
         alert('The song has been successfully added to ur playlist!');

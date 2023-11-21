@@ -311,4 +311,17 @@ function deletePlaylist($id) {
     mysqli_query($conn, $delete);
     return mysqli_affected_rows($conn);
 }
+
+function addSongToPlaylist($idSong, $idPl) {
+    global $conn;
+
+    $query = "INSERT INTO playlistsong(id_playlist, id_song) VALUES ('$idPl', '$idSong')";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function deleteSongFromPlaylist($idSong, $idPl) {
+
+}
 ?>

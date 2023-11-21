@@ -35,9 +35,7 @@ if (isset($_POST['findSong'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/global.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Index Brok</title>
 </head>
 
@@ -52,16 +50,16 @@ if (isset($_POST['findSong'])) {
             include "playlist.php";
         }
     } else {
-        ?>
+    ?>
         <div class="songListBox">
-            <?php foreach ($groupedSongs as $genre => $songsByGenre): ?>
+            <?php foreach ($groupedSongs as $genre => $songsByGenre) : ?>
                 <div class="genreSection">
                     <!-- Nama genre d sini pan -->
                     <h2 class="genreTitle">
                         <?= $genre ?>
                     </h2>
                     <div class="songList">
-                        <?php foreach ($songsByGenre as $song): ?>
+                        <?php foreach ($songsByGenre as $song) : ?>
                             <div class="songBox">
                                 <div class="photo">
                                     <button onclick="toggleDropdown('<?= $song['id']; ?>')">
@@ -76,10 +74,10 @@ if (isset($_POST['findSong'])) {
                                         </a>
                                     </div>
                                     <div class="playlistModal" id="modal_<?= $song['id']; ?>">
-                                        <?php foreach ($playlist as $pl): ?>
-                                        <a href="?id=<?= $song['id']; ?>&what=<?= $pl['id']; ?>" class="edit">
-                                            <?= $pl['name']; ?>
-                                        </a>
+                                        <?php foreach ($playlist as $pl) : ?>
+                                            <a href="playlistSong/songToPlaylist.php?idSong=<?= $song['id']; ?>&idPl=<?= $pl['id']; ?>" class="edit">
+                                                <?= $pl['name']; ?>
+                                            </a>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
@@ -101,7 +99,7 @@ if (isset($_POST['findSong'])) {
                                             id="playPauseButton_<?= $song['id']; ?>" class="playButton"> 
                                         </a> -->
                                         <a href="?p=lyrics&id=<?= $song['id']; ?>">
-                                        <i class="fa-solid fa-play"></i>
+                                            <i class="fa-solid fa-play"></i>
                                         </a>
                                     </div>
                                 </div>

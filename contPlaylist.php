@@ -1,28 +1,52 @@
 <?php
 
-$pl = query("SELECT playlists.*, users.username AS user_name FROM playlists LEFT JOIN users ON playlists.id_user = users.id WHERE playlists.id = '$playlistId'")[0];
+$pl = query(
+    "SELECT playlists.photo AS playlist_photo, playlists.name AS playlist_name,
+    users.username AS user_name
+    FROM 
+    playlists
+    LEFT JOIN 
+    users ON playlists.id_user = users.id
+    WHERE 
+    playlists.id = '$playlistId'
+"
+)[0];
+
+$song = query("SELECT songs.title AS song_title, songs.artist AS song_artist, songs.photo AS song_photo,
+    playlistsong.id AS playlistsong_id
+    FROM 
+    playlistsong
+    LEFT JOIN 
+    songs ON playlistsong.id_song = songs.id
+    WHERE 
+    playlistsong.id_playlist = '$playlistId'
+");
 ?>
 
 <div class="playlistContainer">
-        <div class="playlistDesc">
-            <img src="assets/upload/images/<?= $pl['photo'] ?>" alt="">
-            <div>
-                <h1><?= $pl['name'] ?></h1>
-                <h5>Made By <?= $pl['user_name'] ?></h5>
-            </div>
+    <div class="playlistDesc">
+        <img src="assets/upload/images/<?= $pl['playlist_photo'] ?>" alt="">
+        <div>
+            <h1><?= $pl['playlist_name'] ?></h1>
+            <h5>Made By <?= $pl['user_name'] ?></h5>
         </div>
-        <div class="playlistContent">
-            <div class="contentHead">
-                <h3>#</h3>
-                <h3>Title</h3>
-            </div>
-            <div class="contentBox">
-                <h1>1</h1>
-                <img src="assets/images/ado.jpeg" alt="">
+    </div>
+    <div class="playlistContent">
+        <div class="contentHead">
+            <h3>#</h3>
+            <h3>Title</h3>
+        </div>
+        <div class="contentBox">
+            <?php $i = 1; ?>
+            <?php foreach ($song as $row) : ?>
+                <h1><?= $i; ?></h1>
+                <img src="assets/upload/images/<?= $row['song_photo'] ?>" alt="">
                 <div>
-                    <h3>Title</h3>
-                    <h5>Artist</h5>
+                    <h3><?= $row['song_title'] ?></h3>
+                    <h5><?= $row['song_artist'] ?></h5>
                 </div>
-            </div>
+                <?php $i++; ?>
+            <?php endforeach; ?>
         </div>
+    </div>
 </div>
