@@ -1,20 +1,19 @@
 <?php
 include "../inc/functions.php";
 
-$idSong = $_GET['idSong'];
-$idPl = $_GET['idPl'];
+$idPls = $_GET['idPls'];
 
-if(deleteSongFromPlaylist($idSong, $idPl) > 0) {
+if(deleteSongFromPlaylist($idPls) > 0) {
     echo "
         <script>
-        alert('The song has been successfully added to ur playlist!');
+        alert('The song has been successfully deleted from ur playlist!');
         window.history.back();
         </script>
         ";
 } else {
     echo "
         <script>
-        alert('Failed to add the song to ur playlist.');
+        alert('Failed to delete the song from ur playlist.');
         window.history.back();
         </script>
         ";

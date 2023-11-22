@@ -321,8 +321,13 @@ function addSongToPlaylist($idSong, $idPl) {
     return mysqli_affected_rows($conn);
 }
 
-function deleteSongFromPlaylist($idSong, $idPl) {
+function deleteSongFromPlaylist($idPls) {
+    global $conn;
 
+    $query = "DELETE FROM playlistsong WHERE id = '$idPls'";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
 }
 ?>
 

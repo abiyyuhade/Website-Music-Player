@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 06:46 PM
+-- Generation Time: Nov 22, 2023 at 03:53 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -79,10 +79,10 @@ CREATE TABLE `playlistsong` (
 --
 
 INSERT INTO `playlistsong` (`id`, `id_playlist`, `id_song`) VALUES
-(1, 6, 21),
 (2, 7, 21),
 (3, 6, 20),
-(4, 7, 19);
+(4, 7, 19),
+(6, 6, 25);
 
 -- --------------------------------------------------------
 
@@ -190,7 +190,7 @@ ALTER TABLE `playlists`
 -- AUTO_INCREMENT for table `playlistsong`
 --
 ALTER TABLE `playlistsong`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `songs`

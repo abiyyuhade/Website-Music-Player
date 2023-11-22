@@ -56,6 +56,7 @@ $song = query("SELECT songs.id AS song_id, songs.title AS song_title, songs.arti
                             <?= $row['song_artist'] ?>
                         </h5>
                     </div>
+                    <a href="playlistSong/deleteSongFromPlaylist.php?idPls=<?= $row['playlistsong_id']; ?>">Delete</a>
                     <?php $i++; ?>
                 </div>
             </a>
