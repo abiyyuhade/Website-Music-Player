@@ -13,7 +13,7 @@ if (isset($_SESSION['id_user'])) {
     $userID = $_SESSION['id_user'];
 }
 
-$id = $_GET['id'];
+$id = $_GET['e'];
 
 $data = query("SELECT * FROM playlists WHERE id = '$id'")[0];
 
@@ -62,7 +62,7 @@ if (isset($_POST['editPlaylist'])) {
                     <label for=""> Current Cover</label>
                     <label for="photo" class="file">
                         <?php
-                        $photoPath = '../assets/upload/images/' . $data['photo'];
+                        $photoPath = 'assets/upload/images/' . $data['photo'];
                         if (file_exists($photoPath)) {
                             echo '<img src="' . $photoPath . '" width="190px" class="cover-album">';
                         } else {

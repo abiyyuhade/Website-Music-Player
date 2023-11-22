@@ -572,11 +572,18 @@ nav .navRight a {
     position: relative;
 }
 
-.playlistContainer .playlistDesc a {
+.playlistContainer .playlistDesc .delete {
     color: white;
     font-size: 30px;
     position: absolute;
     right: 50px;
+}
+
+.playlistContainer .playlistDesc .edit {
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    right: 100px;
 }
 
 .playlistContainer .playlistDesc img {

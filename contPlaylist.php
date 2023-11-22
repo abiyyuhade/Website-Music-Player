@@ -45,8 +45,11 @@ $song = query("SELECT songs.id AS song_id, songs.title AS song_title, songs.arti
             </h5>
         </div>
         <!-- mulai di sini -->
-        <a href="editPlaylist.php">
+        <a class="edit" href="editPlaylist.php?e= <?= $playlistId ?> ">
         <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+        <a class="delete" href="editPlaylist.php?e= <?= $playlistId ?> ">
+        <i class="fa-solid fa-trash"></i>
         </a>
     </div>
     <div class="playlistContent">
