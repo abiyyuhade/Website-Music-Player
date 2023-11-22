@@ -9,7 +9,7 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
-if(isset($_SESSION['id_user'])) {
+if (isset($_SESSION['id_user'])) {
     $userID = $_SESSION['id_user'];
 }
 
@@ -39,31 +39,33 @@ if (isset($_POST['findSong'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/global.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Index Brok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Index</title>
 </head>
 
 <body>
     <?php
     if (isset($_GET['p'])) {
         if ($_GET['p'] == 'listPlaylist') {
-            include "playlist/listPlaylist.php";
+            include "addPlaylist.php";
         } else if ($_GET["p"] == "lyrics") {
             include "lyrics.php";
         } else if ($_GET["p"] == "playlist") {
             include "playlist.php";
         }
     } else {
-    ?>
+        ?>
         <div class="songListBox">
-            <?php foreach ($groupedSongs as $genre => $songsByGenre) : ?>
+            <?php foreach ($groupedSongs as $genre => $songsByGenre): ?>
                 <div class="genreSection">
                     <!-- Nama genre d sini pan -->
                     <h2 class="genreTitle">
                         <?= $genre ?>
                     </h2>
                     <div class="songList">
-                        <?php foreach ($songsByGenre as $song) : ?>
+                        <?php foreach ($songsByGenre as $song): ?>
                             <div class="songBox">
                                 <div class="photo">
                                     <button onclick="toggleDropdown('<?= $song['id']; ?>')">
@@ -78,8 +80,12 @@ if (isset($_POST['findSong'])) {
                                         </a>
                                     </div>
                                     <div class="playlistModal" id="modal_<?= $song['id']; ?>">
-                                        <?php foreach ($playlist as $pl) : ?>
-                                            <a href="playlistSong/songToPlaylist.php?idSong=<?= $song['id']; ?>&idPl=<?= $pl['id']; ?>" class="edit">
+                                        <a href="addPlaylist.php">
+                                            Add New Playlist
+                                        </a>
+                                        <?php foreach ($playlist as $pl): ?>
+                                            <a href="playlistSong/songToPlaylist.php?idSong=<?= $song['id']; ?>&idPl=<?= $pl['id']; ?>"
+                                                class="edit">
                                                 <?= $pl['name']; ?>
                                             </a>
                                         <?php endforeach; ?>
@@ -95,13 +101,6 @@ if (isset($_POST['findSong'])) {
                                         </h5>
                                     </div>
                                     <div class="playBox">
-                                        <?php
-                                        $musicPath = './assets/upload/music/' . $song['music'];
-                                        ?>
-                                        <!-- <audio id="music<?= $song['id']; ?>" src="<?= $musicPath; ?>"></audio>
-                                        <a href="javascript:void(0);" onclick="toggleMusic('<?= $song['id']; ?>')"
-                                            id="playPauseButton_<?= $song['id']; ?>" class="playButton"> 
-                                        </a> -->
                                         <a href="?p=lyrics&id=<?= $song['id']; ?>">
                                             <i class="fa-solid fa-play"></i>
                                         </a>
@@ -168,9 +167,9 @@ if (isset($_POST['findSong'])) {
             }
         }
 
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const photos = document.querySelectorAll('.photo');
-            photos.forEach(function(photo) {
+            photos.forEach(function (photo) {
                 const dropdownContent = photo.querySelector('.dropdown');
                 const modalContent = photo.querySelector('.playlistModal');
                 if (event.target !== photo && !photo.contains(event.target)) {

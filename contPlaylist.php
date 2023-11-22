@@ -23,6 +23,16 @@ $song = query("SELECT songs.id AS song_id, songs.title AS song_title, songs.arti
 ");
 ?>
 
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>playlist</title>
+</head>
+
 <div class="playlistContainer">
     <div class="playlistDesc">
         <img src="assets/upload/images/<?= $pl['playlist_photo'] ?>" alt="">
@@ -34,6 +44,10 @@ $song = query("SELECT songs.id AS song_id, songs.title AS song_title, songs.arti
                 <?= $pl['user_name'] ?>
             </h5>
         </div>
+        <!-- mulai di sini -->
+        <a href="editPlaylist.php">
+        <i class="fa-solid fa-pen-to-square"></i>
+        </a>
     </div>
     <div class="playlistContent">
         <div class="contentHead">
@@ -56,7 +70,9 @@ $song = query("SELECT songs.id AS song_id, songs.title AS song_title, songs.arti
                             <?= $row['song_artist'] ?>
                         </h5>
                     </div>
-                    <a href="playlistSong/deleteSongFromPlaylist.php?idPls=<?= $row['playlistsong_id']; ?>">Delete</a>
+                    <a href="playlistSong/deleteSongFromPlaylist.php?idPls=<?= $row['playlistsong_id']; ?>">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
                     <?php $i++; ?>
                 </div>
             </a>

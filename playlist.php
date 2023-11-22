@@ -26,6 +26,9 @@ $playlist = query("SELECT playlists.*, users.username AS user_name FROM playlist
     } ?>
 <div class="playlistNav">
     <h2>Playlist</h2>
+    <a href="index.php">
+        <h3>Add New Playlist</h3>
+    </a>
     <form action="">
         <input type="text" name="" id="">
         <button>

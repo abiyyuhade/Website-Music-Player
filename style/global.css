@@ -191,8 +191,10 @@ nav .navRight a {
     display: flex;
     text-decoration: none;
     color: white;
-    padding: 5px 7px;
+    margin: 0 10px;
+    padding: 5px 0;
     align-items: center;
+    border-bottom: 1px solid black;
 }
 
 .songBox .photo .dropdown a {
@@ -503,6 +505,16 @@ nav .navRight a {
     text-align: center;
 }
 
+.playlistNav h3 {
+    color: #525252;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    background-color: #000000;
+    width: 180px;
+    border-radius: 10px;
+    text-align: center;
+}
+
 .playlistNav input {
     width: 220px;
     height: 25px;
@@ -556,6 +568,15 @@ nav .navRight a {
     padding: 30px 20px;
     border-radius: 10px;
     margin-bottom: 30px;
+    align-items: center;
+    position: relative;
+}
+
+.playlistContainer .playlistDesc a {
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    right: 50px;
 }
 
 .playlistContainer .playlistDesc img {
@@ -599,17 +620,135 @@ nav .navRight a {
     color: white;
 }
 
+.playlistContent a {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.playlistContent a i{
+    position: absolute;
+    right: 50px;
+    font-size: 20px;
+}
+
 .playlistContent .contentBox {
     margin-top: 30px;
     display: flex;
     padding-left: 60px;
     align-items: center;
     color: white;
+    justify-content: flex-start;
+    position: relative;
 }
 
 .playlistContent .contentBox img {
     width: 80px;
     margin: 0 50px;
+}
+
+/* addPlaylist */
+
+.addTitle {
+    color: white;
+    font-size: 28px;
+    margin: 0 20px;
+    padding: 20px 0;
+}
+
+.addBox {
+    display: flex;
+    margin: 0 30px;
+}
+
+.addBox .addLeft {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.addBox .addLeft label {
+    color: white;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.addBox .addLeft select {
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 120px;
+    padding-left: 10px;
+}
+
+.addBox .addLeft .fileBox {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.addBox .addLeft .fileBox div {
+    width: 50%;
+    display: grid;
+}
+
+.addBox .addLeft .file {
+    width: 200px;
+    height: 200px;
+    margin: 0;
+    border: 3px dashed white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.addBox .addLeft .file p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.addBox .addLeft .fileBox input{
+    opacity: 0;
+}
+
+.addBox input {
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 600px;
+    padding-left: 10px;
+}
+
+.addBox input:focus {
+    outline: none;
+}
+
+.addBox .addRight {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.addBox .addRight label {
+    color: white;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.addBox .addRight textarea {
+    border-radius: 10px;
+    padding: 10px;
+    height: 300px;
+}
+
+.addBox .addRight button {
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 /* footer */
