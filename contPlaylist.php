@@ -12,7 +12,7 @@ $pl = query(
 "
 )[0];
 
-$song = query("SELECT songs.title AS song_title, songs.artist AS song_artist, songs.photo AS song_photo,
+$song = query("SELECT songs.id AS song_id, songs.title AS song_title, songs.artist AS song_artist, songs.photo AS song_photo,
     playlistsong.id AS playlistsong_id
     FROM 
     playlistsong
@@ -42,7 +42,7 @@ $song = query("SELECT songs.title AS song_title, songs.artist AS song_artist, so
         </div>
         <?php $i = 1; ?>
         <?php foreach ($song as $row): ?>
-            <a href="?p=lyrics&id=<?= $row['id']; ?>">
+            <a href="index.php?p=lyrics&id=<?= $row['song_id']; ?>">
                 <div class="contentBox">
                     <h1>
                         <?= $i; ?>

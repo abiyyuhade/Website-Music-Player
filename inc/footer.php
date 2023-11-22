@@ -4,6 +4,7 @@
 $songId = null;
 $title = 'Song';
 $artist = 'Artist';
+$photo = 'ado.jpeg';
 
 // Initialize $songId to null
 $songId = null;
@@ -42,6 +43,7 @@ if (isset($_GET['id'])) {
     $musicPath = './assets/upload/music/' . $song['music'];
     $title = $song['title'];
     $artist = $song['artist'];
+    $photo = $song['photo'];
 
     // Store the current song ID in a cookie
     setCookie('currentPlayingMusicId', $songId);
@@ -70,7 +72,7 @@ if (isset($_GET['id'])) {
             <i class="fa-solid fa-forward" id="nextButton"></i>
         </div>
         <div class="footMid">
-            <img src="assets/images/ado.jpeg" alt="">
+            <img src="assets/upload/images/<?= $photo ?>" alt="">
             <div>
                 <h4 id="title">
                     <?= $title ?>
