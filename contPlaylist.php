@@ -1,8 +1,12 @@
 <?php
 
+if (isset($_SESSION['id_user'])) {
+    $userID = $_SESSION['id_user'];
+}
+
 $pl = query(
     "SELECT playlists.photo AS playlist_photo, playlists.name AS playlist_name,
-    users.username AS user_name
+    users.id AS user_id, users.username AS user_name
     FROM 
     playlists
     LEFT JOIN 
@@ -21,6 +25,8 @@ $song = query("SELECT songs.id AS song_id, songs.title AS song_title, songs.arti
     WHERE 
     playlistsong.id_playlist = '$playlistId'
 ");
+
+$PlOwner = ($userID === $pl['user_id']);
 ?>
 
 <head>
@@ -45,12 +51,14 @@ $song = query("SELECT songs.id AS song_id, songs.title AS song_title, songs.arti
             </h5>
         </div>
         <!-- mulai di sini -->
-        <a class="edit" href="editPlaylist.php?e= <?= $playlistId ?> ">
-        <i class="fa-solid fa-pen-to-square"></i>
-        </a>
-        <a class="delete" href="editPlaylist.php?e= <?= $playlistId ?> ">
-        <i class="fa-solid fa-trash"></i>
-        </a>
+        <?php if ($PlOwner): ?>
+            <a class="edit" href="editPlaylist.php?e=<?= $playlistId ?>">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+            <a class="delete" href="deletePlaylist.php?d=<?= $playlistId ?>">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        <?php endif; ?>
     </div>
     <div class="playlistContent">
         <div class="contentHead">
@@ -73,9 +81,11 @@ $song = query("SELECT songs.id AS song_id, songs.title AS song_title, songs.arti
                             <?= $row['song_artist'] ?>
                         </h5>
                     </div>
+                    <?php if ($PlOwner): ?>
                     <a href="playlistSong/deleteSongFromPlaylist.php?idPls=<?= $row['playlistsong_id']; ?>">
                         <i class="fa-solid fa-trash"></i>
                     </a>
+                    <?php endif; ?>
                     <?php $i++; ?>
                 </div>
             </a>

@@ -9,7 +9,15 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
-$playlist = query("SELECT playlists.*, users.username AS user_name FROM playlists LEFT JOIN users ON playlists.id_user = users.id");
+if (isset($_GET['search'])) {
+    $searchKeyword = $_GET['search'];
+    $playlist = query("SELECT playlists.*, users.username AS user_name FROM playlists 
+                      LEFT JOIN users ON playlists.id_user = users.id
+                      WHERE playlists.name LIKE '%$searchKeyword%'");
+} else {
+    $playlist = query("SELECT playlists.*, users.username AS user_name FROM playlists 
+                      LEFT JOIN users ON playlists.id_user = users.id");
+}
 ?>
 <head>
 <meta charset="UTF-8">
@@ -29,9 +37,9 @@ $playlist = query("SELECT playlists.*, users.username AS user_name FROM playlist
     <a href="index.php">
         <h3>Add New Playlist</h3>
     </a>
-    <form action="">
-        <input type="text" name="" id="">
-        <button>
+    <form action="" method="get">
+        <input type="text" name="search" id="" placeholder="Search playlist..." autocomplete="off">
+        <button type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </form>
