@@ -13,7 +13,12 @@ if (isset($_SESSION['id_user'])) {
     $userID = $_SESSION['id_user'];
 }
 
-$songs = query("SELECT songs.*, genres.name AS genre_name FROM songs LEFT JOIN genres ON songs.id_genre = genres.id ORDER BY genres.name ASC, songs.title ASC");
+if (isset($_POST['findSong'])) {
+    $keyword = $_POST['keyword'];
+    $songs = findSong($keyword);
+} else {
+    $songs = query("SELECT songs.*, genres.name AS genre_name FROM songs LEFT JOIN genres ON songs.id_genre = genres.id ORDER BY genres.name ASC, songs.title ASC");
+}
 
 $playlist = query("SELECT playlists.*, users.username AS user_name FROM playlists LEFT JOIN users ON playlists.id_user = users.id WHERE playlists.id_user = $userID");
 
@@ -25,10 +30,6 @@ foreach ($songs as $song) {
         $groupedSongs[$genre] = array();
     }
     $groupedSongs[$genre][] = $song;
-}
-
-if (isset($_POST['findSong'])) {
-    $song = findSong($_POST['keyword']);
 }
 ?>
 

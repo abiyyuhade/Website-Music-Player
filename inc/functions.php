@@ -221,7 +221,7 @@ function updateSong($data) {
 }
 
 function findSong($keyword) {
-    $query = "SELECT * FROM songs WHERE title LIKE '%$keyword%' OR artist LIKE '%$keyword%' ORDER BY title ASC";
+    $query = "SELECT songs.*, genres.name AS genre_name FROM songs LEFT JOIN genres ON songs.id_genre = genres.id WHERE songs.title LIKE '%$keyword%' OR songs.artist LIKE '%$keyword%' OR genres.name LIKE'%$keyword%'  ORDER BY songs.title ASC";
     return query($query);
 }
 
