@@ -1,5 +1,9 @@
 <?php
 
+if (!isset($_SESSION['login'])) {
+    header("Location: login.php");
+    exit;
+}
 // Initialize $songId to null
 $songId = null;
 $title = 'Song';
