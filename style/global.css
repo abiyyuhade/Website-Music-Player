@@ -123,27 +123,31 @@ nav .navRight a {
 
 /* songList */
 
+
 .songList {
     display: flex;
     width: 100%;
-    background-color: rgb(100, 100, 100);
-    padding: 15px 0;
+    background-color: #282728;
+    padding: 30px 0;
     border-radius: 10px;
+    overflow-x: hidden;
+    user-select: none;
 }
 
 .genreTitle {
     color: white;
     margin: 15px 0;
-    background-color: rgb(100, 100, 100);
-    width: 130px;
+    background-color: #282728;
+    max-width: 200px;
     text-align: center;
     border-radius: 10px;
+    padding: 5px 0;
 }
 
 .songBox { 
    width: 200px;
    border-radius: 10px;
-   background-color: rgb(71, 71, 71);
+   background-color: #424242;
    margin: 0 20px;
 }
 
@@ -170,7 +174,7 @@ nav .navRight a {
     position: absolute;
     top: 6px;
     right: 6px;
-    background-color: rgb(53, 53, 53);;
+    background-color: black;
     width: 130px;
     border-radius: 5px;
     display: none;
@@ -180,7 +184,7 @@ nav .navRight a {
     position: absolute;
     top: 6px;
     right: -130px;
-    background-color: rgb(53, 53, 53);
+    background-color: black;
     width: 130px;
     border-radius: 5px;
     display: none;
@@ -194,7 +198,7 @@ nav .navRight a {
     margin: 0 10px;
     padding: 5px 0;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
 }
 
 .songBox .photo .dropdown a {
@@ -222,7 +226,7 @@ nav .navRight a {
 
 .songBox .titlePlayBox {
     display: flex;
-    height: 75px;
+    height: 90px;
 }
 
 .songBox .titlePlayBox .titleBox {
@@ -470,7 +474,7 @@ nav .navRight a {
 /* playlist */
 
 .playlistNav {
-    background-color: #2E2E2E;
+    background-color: #282728;
     position: fixed;
     left: 10px;
     top: 130px;
@@ -484,7 +488,7 @@ nav .navRight a {
 }
 
 .playlistNav form {
-    background-color: #000000;
+    background-color: #424242 ;
     width: 250px;
     border-radius: 10px;
 }
@@ -497,19 +501,19 @@ nav .navRight a {
 }
 
 .playlistNav h2 {
-    color: #525252;
+    color: white;
     margin: 20px 0;
-    background-color: #000000;
+    background-color: #424242;
     width: 150px;
     border-radius: 10px;
     text-align: center;
 }
 
 .playlistNav h3 {
-    color: #525252;
+    color: white;
     margin-bottom: 10px;
     padding: 5px 0;
-    background-color: #000000;
+    background-color: #424242;
     width: 180px;
     border-radius: 10px;
     text-align: center;
@@ -521,7 +525,8 @@ nav .navRight a {
     border: none;
     border-radius: 10px;
     padding-left: 10px;
-    background-color: #000000;
+    background-color: #424242;
+    color: white;
 }
 
 .playlistNav input:focus {
@@ -549,7 +554,7 @@ nav .navRight a {
 }
 
 .playlistNav .listPlaylist div p {
-    color: #525252;
+    color: #999999;
 }
 
 .playlistNav .listPlaylist i {
@@ -563,7 +568,7 @@ nav .navRight a {
 }
 
 .playlistContainer .playlistDesc {
-    background-color: #2E2E2E;
+    background-color: #282728;
     display: flex;
     padding: 30px 20px;
     border-radius: 10px;
@@ -601,7 +606,7 @@ nav .navRight a {
 }
 
 .playlistContainer .playlistContent {
-    background-color: #2E2E2E;
+    background-color: #282728;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -769,7 +774,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgb(37, 37, 37);
+    background-color: black;
     border-top: 1px solid rgb(100, 100, 100);
     z-index: 9;
 }

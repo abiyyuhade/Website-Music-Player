@@ -4,13 +4,11 @@ if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit;
 }
-// Initialize $songId to null
 $songId = null;
 $title = 'Song';
 $artist = 'Artist';
 $photo = 'ado.jpeg';
 
-// Initialize $songId to null
 $songId = null;
 
 $songIds = [];
@@ -20,18 +18,14 @@ while ($row = mysqli_fetch_assoc($query)) {
     $songIds[] = $row['id'];
 }
 
-// Check if setCookie function is not defined
 if (!function_exists('setCookie')) {
-    // Function to set a cookie
     function setCookie($name, $value)
     {
-        setcookie($name, $value, time() + (86400 * 30), "/"); // 86400 = 1 day
+        setcookie($name, $value, time() + (86400 * 30), "/"); 
     }
 }
 
-// Check if getCookie function is not defined
 if (!function_exists('getCookie')) {
-    // Function to get a cookie value
     function getCookie($name)
     {
         return isset($_COOKIE[$name]) ? $_COOKIE[$name] : null;
@@ -49,7 +43,6 @@ if (isset($_GET['id'])) {
     $artist = $song['artist'];
     $photo = $song['photo'];
 
-    // Store the current song ID in a cookie
     setCookie('currentPlayingMusicId', $songId);
 }
 ?>
@@ -60,7 +53,7 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle Class on Pause Example</title>
+    <title>Music Web</title>
 </head>
 
 <body>
@@ -87,17 +80,14 @@ if (isset($_GET['id'])) {
             </div>
         </div>
         <div class="footRight">
-            <!-- Music slider -->
             <input type="range" id="musicSlider" min="0" max="100" value="0" oninput="setPlaybackPosition(this.value)">
-             <!-- Timestamp -->
              <span id="timestamp">0:00</span>
-            <span> / </span> <!-- Separator between timestamp and duration -->
+            <span> / </span>
             <span id="duration">0:00</span>
         </div>
     </footer>
 
     <script>
-        // Function to get a cookie value
         function getCookie(name) {
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
@@ -139,25 +129,19 @@ if (isset($_GET['id'])) {
                 audioElement.play();
                 currentPlayingMusicId = musicId;
 
-                // Update the current song ID in the cookie
                 document.cookie = 'currentPlayingMusicId=' + musicId + '; path=/';
 
-                // Update icon play/pause
                 playButton.querySelector('i').classList.remove('fa-play');
                 playButton.querySelector('i').classList.add('fa-pause');
             }
         }
 
-        // Create a JavaScript array from the PHP array
         var songIds = <?php echo '[' . implode(', ', $songIds) . ']'; ?>;
-
-        // ... Your existing JavaScript code ...
 
         function playNextSong() {
             var currentIndex = songIds.indexOf(currentPlayingMusicId);
             var nextIndex = (currentIndex + 1) % songIds.length;
 
-            // Loop until a valid song ID is found
             while (nextIndex !== currentIndex && songIds[nextIndex] === null) {
                 nextIndex = (nextIndex + 1) % songIds.length;
             }
@@ -183,13 +167,11 @@ if (isset($_GET['id'])) {
 
             slider.value = (audioElement.currentTime / audioElement.duration) * 100;
 
-            // Update timestamp
             var currentTimeMinutes = Math.floor(audioElement.currentTime / 60);
             var currentTimeSeconds = Math.floor(audioElement.currentTime % 60);
             var formattedCurrentTime = currentTimeMinutes + ':' + (currentTimeSeconds < 10 ? '0' : '') + currentTimeSeconds;
             timestamp.textContent = formattedCurrentTime;
 
-            // Update duration
             var durationMinutes = Math.floor(audioElement.duration / 60);
             var durationSeconds = Math.floor(audioElement.duration % 60);
             var formattedDuration = durationMinutes + ':' + (durationSeconds < 10 ? '0' : '') + durationSeconds;
@@ -201,9 +183,6 @@ if (isset($_GET['id'])) {
             audioElement.currentTime = (position / 100) * audioElement.duration;
         }
 
-
-
-        // Automatically start playing the music when the page loads
         window.onload = function () {
             toggleMusic(<?php echo $songId; ?>);
         };

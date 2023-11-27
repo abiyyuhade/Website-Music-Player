@@ -50,7 +50,6 @@ $PlOwner = ($userID === $pl['user_id']);
                 <?= $pl['user_name'] ?>
             </h5>
         </div>
-        <!-- mulai di sini -->
         <?php if ($PlOwner): ?>
             <a class="edit" href="editPlaylist.php?e=<?= $playlistId ?>">
                 <i class="fa-solid fa-pen-to-square"></i>

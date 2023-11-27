@@ -47,13 +47,6 @@ if(isset($_POST['addPlaylist'])) {
 </head>
 <body>
     <h1 class="addTitle">Add New Playlist</h1>
-    <!-- <form action="" method="post" enctype="multipart/form-data">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" autocomplete="off" required><br><br>
-        <label for="photo">Photo</label>
-        <input type="file" name="photo" id="photo"><br><br>
-        <button type="submit" name="addPlaylist">Add Playlist</button>
-    </form> -->
     <form action="" method="post" enctype="multipart/form-data" class="addBox">
         <div class="addLeft">
             <label for="name">Playlist Name</label>

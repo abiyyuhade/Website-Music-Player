@@ -68,15 +68,15 @@ a:hover {
 	height: 40px;
 	padding: 5px 0;
 	border: none;
-	background-color: #1DB954;
+	background-color: #282728;
 	font-size: 18px;
-	color: #191414;
+	color: white;
 	border-radius: 8px;
 	margin-top: 10px;
     font-weight: bold
 }
 
 .containerForm form button:hover {
-	background-color:#1DB954;
+	background-color:#424242;
     transform: scale(1.1);
 }

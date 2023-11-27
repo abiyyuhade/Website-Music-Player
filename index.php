@@ -61,11 +61,11 @@ foreach ($songs as $song) {
         <div class="songListBox">
             <?php foreach ($groupedSongs as $genre => $songsByGenre): ?>
                 <div class="genreSection">
-                    <!-- Nama genre d sini pan -->
                     <h2 class="genreTitle">
                         <?= $genre ?>
                     </h2>
-                    <div class="songList">
+                    <div class="songList" onmousedown="handleMouseDown(event)" onmousemove="handleMouseMove(event)"
+                        onmouseup="handleMouseUp()" onmouseleave="handleMouseLeave()">
                         <?php foreach ($songsByGenre as $song): ?>
                             <div class="songBox">
                                 <div class="photo">
@@ -74,7 +74,6 @@ foreach ($songs as $song) {
                                     </button>
                                     <img src="assets/upload/images/<?= $song['photo'] ?>" alt="">
                                     <div id="dropdown_<?= $song['id']; ?>" class="dropdown">
-                                        <!-- add to playlist -->
                                         <a href="" class="edit" onclick="toggleModal('<?= $song['id']; ?>', event)">
                                             <i class="fa-regular fa-square-plus"></i>
                                             Add to Playlist
@@ -115,38 +114,8 @@ foreach ($songs as $song) {
         </div>
     <?php } ?>
     <script>
-        // var currentPlayingMusicId = null;
 
-        // function toggleMusic(musicId) {
-        //     var audioElement = document.getElementById('music' + musicId);
-        //     var playButton = document.getElementById('playPauseButton_' + musicId);
-
-        //     if (currentPlayingMusicId === musicId) {
-        //         if (audioElement.paused) {
-        //             audioElement.play();
-        //             // playButton.innerText = 'Pause';
-        //         } else {
-        //             audioElement.pause();
-        //             // playButton.innerText = 'Play';
-        //         }
-        //     } else {
-        //         var currentPlayingAudio = document.getElementById('music' + currentPlayingMusicId);
-        //         if (currentPlayingAudio) {
-        //             currentPlayingAudio.pause();
-        //             var currentPlayingButton = document.getElementById('playPauseButton_' + currentPlayingMusicId);
-        //             if (currentPlayingButton) {
-        //                 // currentPlayingButton.innerText = 'Play';
-        //             }
-        //         }
-
-        //         audioElement.play();
-        //         currentPlayingMusicId = musicId;
-        //         // playButton.innerText = 'Pause';
-        //     }
-        // }
-
-        // var currentPlayingMusicId = null;
-        var currentDropdownId = null; // Tambahkan variabel untuk menyimpan id dropdown terakhir
+        var currentDropdownId = null; 
 
         function toggleDropdown(id) {
             const dropdownContent = document.getElementById('dropdown_' + id);
@@ -154,7 +123,7 @@ foreach ($songs as $song) {
                 dropdownContent.style.display = 'none';
             } else {
                 dropdownContent.style.display = 'block';
-                currentDropdownId = id; // Simpan id dropdown terakhir
+                currentDropdownId = id; 
             }
         }
 
@@ -179,6 +148,32 @@ foreach ($songs as $song) {
                 }
             });
         };
+
+        var isMouseDown = false;
+        var startX;
+        var scrollLeft;
+
+        function handleMouseDown(e) {
+            isMouseDown = true;
+            startX = e.pageX - e.target.offsetLeft;
+            scrollLeft = e.target.scrollLeft;
+        }
+
+        function handleMouseMove(e) {
+            if (!isMouseDown) return;
+            var x = e.pageX - e.target.offsetLeft;
+            var walk = (x - startX) * 1; 
+            e.target.scrollLeft = scrollLeft - walk;
+        }
+
+        function handleMouseUp() {
+            isMouseDown = false;
+        }
+
+        function handleMouseLeave() {
+            isMouseDown = false;
+        }
+
     </script>
 </body>
 

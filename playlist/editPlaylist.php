@@ -50,7 +50,6 @@ if (isset($_POST['editPlaylist'])) {
                         }
                         ?>
                     </label>
-                    <!-- <input type="file" name="photo" id="photo"> -->
                 </div>
             </div>
         </div>

@@ -49,14 +49,12 @@ if (isset($_POST['add'])) {
             <label for="artist">Artist</label>
             <input type="text" name="artist" id="artist" placeholder="Artist" required>
 
-            <!-- Gua nambahin genre disini pan -->
             <label for="genre">Genre</label>
             <select name="genre" id="genre">
                 <?php foreach ($genre as $row) : ?>
                     <option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
                 <?php endforeach; ?>
             </select>
-            <!-- Sampe sini -->
 
             <div class="fileBox">
                 <div>

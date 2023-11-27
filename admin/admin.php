@@ -12,13 +12,10 @@ if ($_SESSION['role'] !== 'admin') {
     exit;
 }
 
-// Song Page
 $song = query("SELECT songs.*, genres.name AS genre_name FROM songs LEFT JOIN genres ON songs.id_genre = genres.id");
 
-// Genre Page
 $genre = query("SELECT * FROM genres");
 
-// Playlist Page
 $playlist = query("SELECT playlists.*, users.username AS user_name FROM playlists LEFT JOIN users ON playlists.id_user = users.id");
 ?>
 

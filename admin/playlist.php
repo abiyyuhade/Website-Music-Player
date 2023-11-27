@@ -16,7 +16,6 @@
                 <td>
                     <?= $i; ?>
                 </td>
-                <!-- harusnya anchor buat ke page baru yg isinya daftar lagu dalam playlist -->
                 <td>
                     <?= $row['name']; ?>
                 </td>

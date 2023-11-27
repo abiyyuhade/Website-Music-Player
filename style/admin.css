@@ -45,7 +45,7 @@ nav .navBot a {
     align-items: center;
     color: white;
     margin-bottom: 20px;
-    background-color: rgb(53, 53, 53);
+    background-color: #282728;
     width: 130px;
     height: 40px;
     padding-left: 15px;
@@ -79,7 +79,7 @@ nav .navBot {
     width: 100px;
     border: none;
     border-radius: 10px;
-    background-color: rgb(58, 58, 58);
+    background-color: #282728;
 }
 
 .addSong a {
@@ -97,7 +97,7 @@ tr,th,td {
     border: 1px solid white;
     color: white;
     text-align: center;
-    background-color: rgb(71, 71, 71);
+    background-color: #282728;
 }
 
 th {
@@ -239,12 +239,13 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgb(53, 53, 53);
+    background-color: black;
     height: 50px;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-top: 1px solid white;
 }
 
 footer i{

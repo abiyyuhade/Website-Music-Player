@@ -78,7 +78,6 @@ if (isset($_POST['update'])) {
                         }
                         ?>
                     </label>
-                    <!-- <input type="file" name="photo" id="photo"> -->
                 </div>
             </div>
         </div>
