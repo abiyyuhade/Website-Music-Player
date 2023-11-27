@@ -15,7 +15,7 @@ if (isset($_POST['editPlaylist'])) {
     } else {
         echo "
             <script>
-            alert('Failed to update the song. Please check your input and try again.');
+            alert('Failed to update the playlist. Please check your input and try again.');
             </script>
         ";
     }
