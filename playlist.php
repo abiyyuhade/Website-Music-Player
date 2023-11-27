@@ -34,7 +34,7 @@ if (isset($_GET['search'])) {
     } ?>
 <div class="playlistNav">
     <h2>Playlist</h2>
-    <a href="index.php">
+    <a href="addPlaylist.php">
         <h3>Add New Playlist</h3>
     </a>
     <form action="" method="get">
