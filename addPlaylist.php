@@ -14,7 +14,7 @@ if (isset($_SESSION['id_user'])) {
 }
 
 if(isset($_POST['addPlaylist'])) {
-    if(addPlaylist($_POST) > 0) {
+    if(addPlaylistUser($_POST) > 0) {
         echo "
             <script>
             alert('The new playlist has been successfully added!');

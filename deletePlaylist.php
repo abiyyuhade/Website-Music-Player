@@ -3,7 +3,7 @@ include "inc/functions.php";
 
 $id = $_GET['d'];
 
-if(deletePlaylist($id) > 0) {
+if(deletePlaylistUser($id) > 0) {
     echo "
         <script>
         alert('The playlist has been successfully deleted!');

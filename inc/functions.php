@@ -157,6 +157,56 @@ function uploadPhoto() {
 
 }
 
+function uploadPhotoUser() {
+    if (empty($_FILES['photo']['name'])) {
+        return null;
+    }
+
+    $fileName = $_FILES['photo']['name'];
+    $fileSize = $_FILES['photo']['size'];
+    $error = $_FILES['photo']['error'];
+    $tmpName = $_FILES['photo']['tmp_name'];
+
+    if($error !== 0) {
+        echo "
+            <script>
+                alert('Error uploading image');
+            </script>
+        ";
+        return false;
+    }
+
+    $extPictValid = ['jpg', 'jpeg', 'png'];
+    $extPict = pathinfo($fileName, PATHINFO_EXTENSION);
+    $extPictFix = strtolower($extPict);
+    if(!in_array($extPictFix, $extPictValid)) {
+        echo "
+            <script>
+                alert('Invalid image format. Please upload a JPG, JPEG, or PNG file.');
+            </script>
+        ";
+        return false;
+    }
+
+    if($fileSize > 100000000) {
+        echo "
+            <script>
+                alert('Its to big.');
+            </script>
+        ";
+        return false;
+    }
+
+    $newFileName = uniqid();
+    $newFileName .= '.';
+    $newFileName .= $extPictFix;
+
+    move_uploaded_file($tmpName, 'assets/upload/images/' . $newFileName);
+
+    return $newFileName;
+
+}
+
 function uploadMusic() {
     if (empty($_FILES['music']['name'])) {
         return null;
@@ -266,6 +316,32 @@ function addPlaylist($data) {
     return mysqli_affected_rows($conn);
 }
 
+function addPlaylistUser($data) {
+    global $conn;
+
+    $name = $data['name'];
+
+    $photo = uploadPhotoUser();
+    if(!$photo) {
+        return false;
+    }
+    
+    $id_user = $_SESSION['id_user']?? null;
+    if ($id_user === null) {
+        echo "
+            <script>
+            alert('User not authenticated. Something wrong!');
+            </script>
+        ";
+        return false;
+    }
+
+    $query = "INSERT INTO playlists (name, photo, id_user) VALUES ('$name', '$photo', '$id_user')";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
 function editPlaylist($data) {
     global $conn;
     
@@ -273,7 +349,7 @@ function editPlaylist($data) {
     $name = $data['name'];
 
     if ($_FILES['photo']['error'] === 0) {
-        $photo = uploadPhoto();
+        $photo = uploadPhotoUser();
         if (!$photo) {
             return false;
         }
@@ -305,6 +381,20 @@ function deletePlaylist($id) {
     $file = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM playlists WHERE id='$id'"));
 
     unlink('../assets/upload/images/' . $file["photo"]);
+
+    $delete = "DELETE FROM playlists WHERE id = $id";
+
+    mysqli_query($conn, $delete);
+    return mysqli_affected_rows($conn);
+}
+
+function deletePlaylistUser($id) {
+    global $conn;
+    $id = mysqli_real_escape_string($conn, $id);
+
+    $file = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM playlists WHERE id='$id'"));
+
+    unlink('assets/upload/images/' . $file["photo"]);
 
     $delete = "DELETE FROM playlists WHERE id = $id";
 
